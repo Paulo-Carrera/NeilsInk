@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<form method="POST" action="{{ url_for('schedule_appointment') }}" enctype="multipart/form-data" class="schedule-form">
+    {{ form.hidden_tag() }}
+
+    <!-- Client Name -->
+    <div class="mb-3">
+        {{ form.client_name.label(class="form-label") }}  <!-- Bootstrap form-label class -->
+        {{ form.client_name(class="form-control", size=32) }}  <!-- Bootstrap form-control class -->
+    </div>
+
+    <!-- Appointment Time -->
+    <div class="mb-3">
+        {{ form.appointment_time.label(class="form-label") }}
+        <select class="form-control" id="appointment-time" name="appointment_time">
+            {% for slot in availability %}
+                <option value="{{ slot.start_time }}">{{ slot.start_time }} - {{ slot.end_time }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}  <!-- Bootstrap form-label class -->
+        {{ form.description(class="form-control", cols=30, rows=5) }}  <!-- Bootstrap form-control class -->
+    </div>
+
+    <!-- Image Upload -->
+    <div class="mb-3">
+        {{ form.image.label(class="form-label") }}  <!-- Bootstrap form-label class -->
+        {{ form.image(class="form-control") }}  <!-- Bootstrap form-control class -->
+    </div>
+
+    <!-- Payment Method Selection -->
+    <div class="mb-3">
+        {{ form.payment_method.label(class="form-label") }}  <!-- Bootstrap form-label class -->
+        {{ form.payment_method(class="form-select") }}  <!-- Bootstrap form-select class -->
+    </div>
+
+    <!-- Conditional Payment Details -->
+    <div id="paypal-info" class="payment-details" style="display: none;">
+        <h3>Pay with PayPal</h3>
+        <img src="{{ url_for('static', filename='paypal.png') }}" alt="PayPal QR Code" style="max-width: 200px;">
+        <p>Scan the QR code to pay using PayPal.</p>
+    </div>
+
+    <div id="cashapp-info" class="payment-details" style="display: none;">
+        <h3>Pay with Cash App</h3>
+        <img src="{{ url_for('static', filename='cashapp.png') }}" alt="Cash App QR Code" style="max-width: 200px;">
+        <p>Scan the QR code to pay using Cash App.</p>
+    </div>
+
+    <div id="venmo-info" class="payment-details" style="display: none;">
+        <h3>Pay with Venmo</h3>
+        <img src="{{ url_for('static', filename='venmo.png') }}" alt="Venmo QR Code" style="max-width: 200px;">
+        <p>Scan the QR code to pay using Venmo.</p>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+        {{ form.submit(class="button-59", style="background-color: #60ad73") }}  <!-- Styled submit button -->
+    </div>
+</form>
+
+<!-- Include Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Include Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // JavaScript to dynamically show/hide payment instructions based on selected method
+    document.addEventListener('DOMContentLoaded', function () {
+        const paymentMethodField = document.querySelector('select[name="payment_method"]');
+        const paymentDetails = {
+            paypal: document.getElementById('paypal-info'),
+            cash_app: document.getElementById('cashapp-info'),
+            venmo: document.getElementById('venmo-info')
+        };
+
+        function updatePaymentDetails() {
+            const selectedMethod = paymentMethodField.value;
+            
+            // Show the correct payment instructions
+            Object.keys(paymentDetails).forEach(method => {
+                paymentDetails[method].style.display = method === selectedMethod ? 'block' : 'none';
+            });
+        }
+
+        paymentMethodField.addEventListener('change', updatePaymentDetails);
+        updatePaymentDetails();  // Initial call to set correct display on page load
+    });
+
+    // Initialize Flatpickr for appointment time
+    flatpickr("#appointment-time", {
+        enableTime: true, // Enable time selection
+        dateFormat: "Y-m-d H:i", // Format for the input
+        minDate: "today", // Prevent past date selection
+    });
+</script>
+
+{% endblock %}
+
+
+

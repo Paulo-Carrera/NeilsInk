@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- view_schedule.html -->
+<h2>Upcoming Appointments</h2>
+<ul>
+  {% for appointment in appointments %}
+    <li>
+      {{ appointment.client_name }} - {{ appointment.appointment_time }} - {{ appointment.description }}
+      {% if appointment.image_file %}
+        <br><img src="{{ url_for('static', filename='uploads/' + appointment.image_file) }}" width="100">
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

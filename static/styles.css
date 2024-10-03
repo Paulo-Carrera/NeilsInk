@@ -1,0 +1,302 @@
+/* General Styles */
+body {
+    background-color: #f0f0f0; /* Light grey background */
+    font-family: 'Arial', sans-serif; /* Modern font */
+    margin: 0; /* Remove default margin */
+    /* color : rgb(114, 175, 124); */
+}
+
+
+
+/* Header Styles */
+header {
+    background-color: #cce6d0; /* Dark grey for header */
+    color: white; /* White text for contrast */
+    padding: 20px 0; /* Padding for header */
+    text-align: center; /* Center align text */
+    height : 100px;
+    position:sticky;
+    top:0;
+}
+
+header h1 {
+    margin: 0; /* No margin for header title */
+    font-size: 2.5rem; /* Font size for header */
+}
+
+header a:hover {
+    text-decoration:none;
+    color :rgb(36, 83, 36)
+}
+
+.schedule-now {
+    background-color: #789785;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1000px; /* Set a height for demonstration */
+}
+
+.schedule-container {
+    /* Optional: add padding or margin if needed */
+    padding: 20px; /* Add some padding */
+    background-color:white;
+    border-radius: 10px;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.schedule-form{
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1000px; /* Set a height for demonstration */
+}
+
+h1{
+    color :rgb(36, 83, 36);
+}
+
+.logo{
+    color : rgb(15, 39, 15);
+    font-size : xx-large
+}
+
+.logo:hover{
+    text-decoration:none;
+}
+
+/* Navigation Styles */
+nav {
+    margin: 15px 0; /* Margin for nav */
+}
+
+nav ul {
+    list-style-type: none; /* No bullet points for list */
+    padding: 0; /* No padding */
+}
+
+nav li {
+    display: inline; /* Horizontal list items */
+    margin: 0 15px; /* Space between list items */
+}
+
+nav li a{
+    color : rgb(57, 67, 70)
+}
+
+.images{
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-height: 300px; /* Set a minimum height if needed */
+}
+
+nav a {
+    color: #ecf0f1; /* Light grey for links */
+    text-decoration: none; /* No underline */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main Titles */
+h2 {
+    color: #34495e; /* Darker grey */
+    margin: 20px 0; /* Space above and below */
+}
+
+/* Centering Text */
+.text-center {
+    text-align: center; /* Center-align text */
+}
+
+/* Card Styles */
+.card {
+    border: none; /* No border for cards */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.card img {
+    border-top-left-radius: 10px; /* Rounded corners for the top of card */
+    border-top-right-radius: 10px; /* Rounded corners for the top of card */
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 5px; /* Rounded button corners */
+    padding: 10px 20px; /* Button padding */
+}
+
+.btn-success {
+    background-color: #27ae60; /* Evergreen green background */
+    border: none; /* No border */
+    color: white; /* White text */
+}
+
+.btn-primary{
+    background-color:#3f634e
+}
+
+.btn-info {
+    background-color: #2980b9; /* Blue background */
+    border: none; /* No border */
+    color: white; /* White text */
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(76, 105, 91); /* Background color */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    padding: 1rem; /* Padding */
+    position: relative; /* Position relative for proper placement */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+    margin-top:250px;
+}
+
+footer h3{
+    color : rgb(131, 161, 131)
+}
+
+footer ul {
+    list-style-type: none; /* No bullet points for list */
+    padding: 0; /* No padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-around; /* Evenly space items */
+    flex-wrap: wrap; /* Wrap items to the next line if they don't fit */
+}
+
+footer a {
+    color: white; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #1a4b2e; /* Darker green on hover */
+}
+
+footer li{
+    color:#1a4b2e
+}
+
+.button-59 {
+    align-items: center;
+    background-color: #fff; /* Background color */
+    border: 2px solid #3f634e; /* Border color */
+    box-sizing: border-box; /* Box model */
+    color: #ffffff; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+    display: inline-flex; /* Flex container for centering content */
+    font-family: Inter, sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Font weight */
+    height: 48px; /* Height of the button */
+    width: 140px; /* Set width for a rectangular shape */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    letter-spacing: -.8px; /* Spacing between letters */
+    line-height: 24px; /* Line height */
+    outline: 0; /* No outline */
+    padding: 0; /* No extra padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* No underline */
+    transition: all .3s; /* Transition effects */
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* For Safari */
+    touch-action: manipulation; /* Touch action */
+}
+
+.button-59:focus {
+    color: #171e29; /* Color on focus */
+}
+
+.button-59:hover {
+    border-color: #06f; /* Change border color on hover */
+    color: #06f; /* Change text color on hover */
+}
+
+.button-59:active {
+    border-color: #06f; /* Change border color on active */
+    color: #06f; /* Change text color on active */
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 2.5rem; /* Slightly smaller for large tablets */
+    }
+
+    .card {
+        margin-bottom: 20px; /* Add margin for spacing on smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2rem; /* Smaller font size for medium tablets */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Smaller subtitle */
+    }
+
+    .container {
+        padding-left: 15px; /* Add padding to the left */
+        padding-right: 15px; /* Add padding to the right */
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Smaller subtitle */
+    }
+
+    .btn {
+        width: 100%; /* Full width buttons on mobile */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+
+    footer ul {
+        text-align: center; /* Center align footer list on mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.5rem; /* Even smaller font size for extra small devices */
+    }
+
+    .card img {
+        width: 100%; /* Ensure images fill the card */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    footer li {
+        display: block; /* Stack footer items on top of each other */
+        margin-bottom: 5px; /* Space between footer items */
+    }
+}
