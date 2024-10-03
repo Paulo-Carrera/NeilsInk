@@ -2,8 +2,10 @@
 
 {% block content %}
 <!-- view_schedule.html -->
-<h2>Upcoming Appointments</h2>
-<ul>
+<div class="appointments-list-container">
+<h2 class="appointments-list-title">Your Upcoming Appointments</h2>
+<hr style="color:white">
+<ul id="appointments" class="appointments-list">
   {% for appointment in appointments %}
     <li>
       {{ appointment.client_name }} - {{ appointment.appointment_time }} - {{ appointment.description }}
@@ -13,4 +15,5 @@
     </li>
   {% endfor %}
 </ul>
+</div>
 {% endblock %}

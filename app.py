@@ -42,7 +42,10 @@ csrf = CSRFProtect(app)
 
 # Create database tables before the first request
 with app.app_context():
-    db.create_all()
+    try:
+        db.create_all()
+    except Exception as e:
+        print(f"Error creating database tables: {e}")
 
 # Define allowed file types
 def allowed_file(filename):
@@ -61,10 +64,9 @@ def schedule_appointment():
 
     if form.validate_on_submit():
         client_name = form.client_name.data 
-        appointment_time = datetime.datetime.strptime(form.appointment_time.data, '%Y-%m-%dT%H:%M')
+        appointment_time = form.appointment_time.data
         description = form.description.data 
         payment_method = form.payment_method.data
-        payment_amount = form.payment_amount.data
 
         # Create upload directory if it doesn't exist
         os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -86,7 +88,6 @@ def schedule_appointment():
             description=description,
             image_file=image_file_name,  # Save the file name
             payment_method=payment_method,
-            payment_amount=payment_amount
         )
         
         try:
@@ -101,6 +102,17 @@ def schedule_appointment():
         return redirect(url_for('view_schedule'))
 
     return render_template('schedule.html', form=form, availability=availability)
+
+@app.route('/confirm-payment/<int:appointment_id>', methods=['POST'])
+def confirm_payment(appointment_id):
+    appointment = Appointment.query.get(appointment_id)
+    if appointment:
+        appointment.payment_status = 'paid'
+        db.session.commit()
+        flash('Payment confirmed successfully!', 'success')
+    else:
+        flash('Appointment not found!', 'error')
+    return redirect(url_for('view_schedule'))
 
 @app.route('/view-schedule')
 def view_schedule():
@@ -141,6 +153,10 @@ def payment_success():
 @app.route('/payment-cancel')
 def payment_cancel():
     return "Payment cancelled!"
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

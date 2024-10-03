@@ -1,12 +1,87 @@
-/* General Styles */
-body {
-    background-color: #f0f0f0; /* Light grey background */
-    font-family: 'Arial', sans-serif; /* Modern font */
+html, body {
+    height: 100%; /* Ensure the body takes full height */
     margin: 0; /* Remove default margin */
-    /* color : rgb(114, 175, 124); */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack the main content and footer vertically */
+}
+
+main {
+    flex: 1; /* Allow the main content to grow and fill space */
+}
+
+.footer {
+    background-color: #f8f9fa; /* Example footer background */
+    padding: 10px; /* Example padding */
+    text-align: center; /* Center footer content */
+    background-color: rgb(76, 105, 91); /* Background color */
+    color: white; /* Text color */
+    position: relative; /* Position relative for proper placement */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+    margin-top:250px;
+}
+
+.appointments-list, .appointments-list-title {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0 auto; /* Center the list */
+    max-width: 600px; /* Set a maximum width */
+    text-align: center; /* Center the text inside the list items */
+}
+
+.appointments-list-title{
+    margin-top:100px;
+}
+
+.appointments-list li {
+    margin: 10px 0; /* Add some spacing between list items */
+}
+
+.appointments-list-container{
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1000px; /* Set a height for demonstration */
+    background-color: rgb(69, 99, 84); /* Background color */
+    color: white; /* Text color */
+    padding: 20px; /* Add some padding */
+}
+
+.services-container{
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1000px; /* Set a height for demonstration */
+    padding: 20px; /* Add some padding */
+}
+
+.services-container-header{
+    margin-top:10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.services-container-text{
+    border-radius:10px;
+    border-color:brown;
+    border-style:solid;
+    border-width:2px;
+    padding: 100px;
+    height: 800px;
 }
 
 
+.services-container-text li{
+    margin-top:100px;
+    list-style:none;
+}
 
 /* Header Styles */
 header {
@@ -155,6 +230,20 @@ h2 {
     color: white; /* White text */
 }
 
+.schedule-form-container{
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1500px; /* Set a height for demonstration */
+    background-color: rgb(69, 99, 84);
+    border-radius: 10px;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+}
+
 /* Footer Styles */
 footer {
     background-color: rgb(76, 105, 91); /* Background color */
@@ -193,9 +282,14 @@ footer li{
     color:#1a4b2e
 }
 
+.text-white{
+    color:white;
+    margin:20px;
+}
+
 .button-59 {
     align-items: center;
-    background-color: #fff; /* Background color */
+    background-color: #60ad73; /* Background color */
     border: 2px solid #3f634e; /* Border color */
     box-sizing: border-box; /* Box model */
     color: #ffffff; /* Text color */
@@ -225,14 +319,31 @@ footer li{
 }
 
 .button-59:hover {
-    border-color: #06f; /* Change border color on hover */
-    color: #06f; /* Change text color on hover */
+    border-color: white; /* Change border color on hover */
+    color: white; /* Change text color on hover */
 }
 
 .button-59:active {
     border-color: #06f; /* Change border color on active */
     color: #06f; /* Change text color on active */
 }
+
+.custom-file-input {
+    border: 2px solid #60ad73; /* Add your preferred border color */
+    border-radius: 5px;        /* Rounded corners */
+    padding: 10px;
+    background-color: #333;    /* Dark background */
+    color: white;              /* White text */
+}
+
+.custom-file-input:hover {
+    background-color: #444;    /* Slightly lighter background on hover */
+}
+
+.custom-file-label {
+    color: #ccc;
+}
+
 
 @media (min-width: 768px) {
   .button-59 {
