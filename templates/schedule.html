@@ -3,49 +3,26 @@
 {% block content %} 
 
 <div class="container mt-5 schedule-form-container">
-    <form method="POST" action="{{ url_for('schedule_appointment') }}" enctype="multipart/form-data" class="schedule-form">
-        {{ form.hidden_tag() }}
+    <h2 class="text-white text-center mb-4">Schedule Your Appointment</h2>
 
-        <h2 class="text-white text-center mb-4">Schedule Your Appointment</h2>
+    <!-- Calendly Embed Code -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/carreraservices3456/schedule-tattoo-piercing" style="min-width:320px;height:630px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-        <!-- Client Name -->
-        <div class="mb-3">
-            {{ form.client_name.label(class="form-label text-white") }}  <!-- Bootstrap form-label class -->
-            {{ form.client_name(class="form-control", size=32) }}  <!-- Bootstrap form-control class -->
-        </div>
-        
-        <!-- Appointment Time -->
-        <div class="mb-3">
-            {{ form.appointment_time.label(class="form-label text-white") }}
-            <input type="text" id="appointment-time" name="appointment_time" class="form-control" placeholder="YYYY-MM-DD HH:MM">
-        </div>
-        
-        <!-- Description -->
-        <div class="mb-3">
-            {{ form.description.label(class="form-label text-white") }}  <!-- Bootstrap form-label class -->
-            {{ form.description(class="form-control", cols=30, rows=5) }}  <!-- Bootstrap form-control class -->
-        </div>
-        
-        <!-- Image Upload -->
-        <div class="mb-3">
-            {{ form.image.label(class="form-label text-white") }}  <!-- Bootstrap form-label class -->
-            <div class="custom-file">
-                {{ form.image(class="custom-file-input", id="imageUpload") }}
-                <label class="custom-file-label" for="imageUpload">Choose file</label>
-            </div>
-        </div>
 
-        <h2 class="text-white text-center" style="font-weight: bold; text-decoration: underline;">$15.00 Deposit Required</h2>
-        <h3 class="text-white text-center">Scan the QR code below to pay online or pay in person</h3>
-        
+    <h1 style="margin-top:60px">Pay Online or In-Person!</h1>       
         <!-- Payment Method Selection -->
         <div class="mb-3">
-            {{ form.payment_method.label(class="form-label text-white") }}  <!-- Bootstrap form-label class -->
-            {{ form.payment_method(class="form-select") }}  <!-- Bootstrap form-select class -->
+            <label class="form-label text-white">Payment Method</label>
+            <select name="payment_method" class="form-select" id="payment-method-select">
+                <option value="paypal">PayPal</option>
+                <option value="cash_app">Cash App</option>
+                <option value="venmo">Venmo</option>
+            </select>
         </div>
         
         <!-- Conditional Payment Details -->
-        <div id="paypal-info" class="payment-details text-white" style="display: none;">
+        <div id="paypal-info" class="payment-details text-white" style="display: block;">
             <h3 class="text-center">Pay with PayPal</h3>
             <img src="{{ url_for('static', filename='paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
             <p class="text-center">Scan the QR code to pay using PayPal.</p>
@@ -63,12 +40,6 @@
             <p class="text-center">Scan the QR code to pay using Venmo.</p>
         </div>
 
-        <!-- Submit Button -->
-        <div class="text-center">
-            {{ form.submit(class="button-59", style="background-color: #60ad73") }}  <!-- Styled submit button -->
-        </div>
-    </form>
-</div>
 
 <!-- Include Flatpickr CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -114,6 +85,7 @@
 </script>
 
 {% endblock %}
+
 
 
 
