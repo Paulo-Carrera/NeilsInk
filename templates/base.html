@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Nayeli's Nail Website{% endblock %}</title>
+    <title>{% block title %}Nayeli's Tattoo Website{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 <body>
 
     <!-- Navbar -->
-    <header>
+    <header style="z-index:1">
         <nav class="navbar">
             <div class="container">
                 <a href="/" class="logo">NeilsInk</a>
@@ -39,15 +39,15 @@
             <p>&copy; 2024 NeilsInk. All rights reserved.</p>
             <ul class="footer-links">
                 <li>
-                    <h3>VISIT US</h3>
+                    <h3 class="footer-heading">VISIT US</h3>
                     <p><a target="_blank" href="https://www.google.com/maps/place/El+Monte,+CA/@34.0711626,-118.076481,13z/data=!3m1!4b1!4m6!3m5!1s0x80c2d0a463f6d0ef:0x6b0f018ea5b0374d!8m2!3d34.0686206!4d-118.0275667!16zL20vMHIwOHc?entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">El Monte, CA</a></p>
                 </li>
                 <li>
-                    <h3>CONTACT US</h3>
-                    <p><a target="_blank" href="https://www.instagram.com/neilsink_/">@neilsink_</a></p>
+                    <h3 class="footer-heading">CONTACT US</h3>
+                    <p><a target="_blank" href="https://www.instagram.com/direct/t/17843172290357561">@neilsink_</a></p>
                 </li>
                 <li>
-                    <h3>HELPFUL LINKS</h3>
+                    <h3 class="footer-heading">HELPFUL LINKS</h3>
                     <p><a href="/about-us">About Us</a></p>
                 </li>
             </ul>

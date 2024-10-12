@@ -6,16 +6,6 @@ from wtforms import ValidationError
 from datetime import datetime
 
 class AppointmentForm(FlaskForm):
-    client_name = StringField('Client Name', validators=[DataRequired()])
-    
-    # Use DateTimeField for appointment time
-    appointment_time = DateTimeField(
-        'Appointment Time', 
-        format='%Y-%m-%d %H:%M',  # Define the format expected
-        validators=[DataRequired()],
-        render_kw={"placeholder": "YYYY-MM-DD HH:MM"}
-    )
-    
     description = TextAreaField('Description', validators=[Optional()])  # Optional field for additional notes
     
     # Image upload with additional file types allowed

@@ -5,7 +5,8 @@
     <!-- Main Content -->
     <main class="flex-fill">
 
-        <div class=" row mt-4 schedule-now">
+        <!-- Schedule Section -->
+        <div class="row mt-4 schedule-now" style="color: #789785; background-color: #789785">
             <div class="schedule-container">
                 <h1>NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
@@ -13,33 +14,143 @@
             </div>
         </div>
 
+        <!-- Studio Introduction -->
         <div class="container mt-5">
             <h1 class="text-center" style="text-decoration: underline;">NeilsInk Tattoo Studio</h1>
             <p class="text-center">Your one-stop destination for beautiful tattoos and precise piercings.</p>
         </div>
 
-            <!-- Card Section -->
-            <div class="row mt-4 images">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Service 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Tattoo Art</h5>
-                            <p class="card-text">Explore our unique ink art designs that showcase your personality.</p>
-                        </div>
+        <!-- Card Section -->
+        <div class="row mt-4 images">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Tattoo Art</h5>
+                        <p class="card-text">Explore our unique ink art designs that showcase your personality.</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row mt-4 question-dropdowns">
-                <div class="faq">
-                    <ul>
-                        
-                    </ul>
-                </div>
+        <!-- FAQ Section -->
+        <div class="row mt-4 question-dropdowns">
+            <div class="faq container">
+                <h2>Frequently Asked Questions</h2>
+                <ul class="list-unstyled">
+                    <!-- Question 1 -->
+                    <li>
+                        <details>
+                            <summary class="question">What is your tattoo studio's location?</summary>
+                            <div class="answer">
+                                <p>We are located in the city of El Monte, California. More details will be available upon request.</p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question 2 -->
+                    <li>
+                        <details>
+                            <summary class="question">How do I schedule an appointment?</summary>
+                            <div class="answer">
+                                <p>You can schedule an appointment by visiting our <a href="/schedule-appointment">Schedule Now</a> page or contacting us directly by visiting our <a href="/contact">Contact Us</a> page.</p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question 3 -->
+                    <li>
+                        <details>
+                            <summary class="question">What are your working hours?</summary>
+                            <div class="answer">
+                                <p>We are open from 10 AM to 8 PM, Monday through Saturday.</p>
+                            </div>
+                        </details>
+                    </li>
+                </ul>
             </div>
+        </div>
+
+    </main>
+
+    <!-- Add your CSS here -->
+    <style>
+        /* Styles for the FAQ dropdown */
+        details {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;;
+            background-color: #789785;
+            color: white;
+        }
+
+        .answer{
+            padding: 10px;
+            background-color:white;
+            color:black;
+        }
+
+        .answer p {
+            color : black;
+        }
+
+        summary {
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+         
+        }
+
+        summary::after {
+            content: "▼";
+            float: right;
+        }
+
+        details[open] summary::after {
+            content: "▲";
+        }
+
+        /* Remove the default bullet points from <ul> */
+        ul.list-unstyled {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        /* Smooth transition for the answer's height */
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        /* Adjusted styling */
+        details[open] .answer {
+            max-height: 200px; /* Max height set for smoother transition */
+        }
+    </style>
+
+    <!-- Add your JavaScript for smooth transitions -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const detailsElements = document.querySelectorAll("details");
+
+            detailsElements.forEach((detail) => {
+                // Attach an event listener to each <details> element
+                detail.addEventListener("toggle", function() {
+                    let answer = this.querySelector(".answer");
+
+                    // If details are opened, we set the max-height dynamically
+                    if (this.open) {
+                        answer.style.maxHeight = answer.scrollHeight + "px"; // Dynamically set height
+                    } else {
+                        answer.style.maxHeight = 0; // Collapse to 0 when closed
+                    }
+                });
+            });
+        });
+    </script>
 
 {% endblock %}
+
 
 
 
