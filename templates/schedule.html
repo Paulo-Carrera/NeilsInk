@@ -8,11 +8,12 @@
 
     <!-- Calendly Embed Code -->
     <div class="calendly-widget-container" >
-        <div class="calendly-inline-widget" data-url="https://calendly.com/carreraservices3456/30min" style="min-width:320px;height:630px; width: 100%; max-width: 800px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/carreraservices3456/tattoo-piercing" style="min-width:320px;height:630px; width: 100%; max-width: 800px;"></div>
     </div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    <h1 style="margin-top:60px" class="schedule-page-header">Pay Online or In-Person!</h1>       
+    <h1 style="margin-top:60px" class="schedule-page-header">$15 DEPOSIT REQUIRED</h1>  
+    <p style="color:white">Pay Online or In-Person</p>     
         <!-- Payment Method Selection -->
         <div class="mb-3">
             <label class="form-label text-white">Payment Method</label>
@@ -26,21 +27,29 @@
         <!-- Conditional Payment Details -->
         <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
             <h2 class="text-center text-white">Pay with PayPal</h2>
-            <img src="{{ url_for('static', filename='paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
+            <div class="img-div">
+                <img src="{{ url_for('static', filename='paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
+            </div>
             <h3 class="text-center">Scan the QR code to pay using PayPal.</h3>
         </div>
         
         <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
             <h2 class="text-center text-white">Pay with Cash App</h2>
-            <img src="{{ url_for('static', filename='cashapp.png') }}" alt="Cash App QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px;">
+            <div class="img-div">
+                <img src="{{ url_for('static', filename='cashapp.png') }}" alt="Cash App QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px;">
+            </div>
             <h3 class="text-center">Scan the QR code to pay using Cash App.</h3>
         </div>
         
         <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
             <h2 class="text-center text-white">Pay with Venmo</h2>
-            <img src="{{ url_for('static', filename='venmo.png') }}" alt="Venmo QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
+            <div class="img-div-venmo">
+                <img src="{{ url_for('static', filename='venmo.png') }}" alt="Venmo QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
+            </div>
             <h3 class="text-center">Scan the QR code to pay using Venmo.</h3>
         </div>
+
+        <a href="/" class="button-59">DONE</a>
 </div>
 
 <!-- CSS -->
@@ -56,6 +65,27 @@
         font-size: 1.5rem;
     }
 
+        /* QR Code Image Containers */
+    .img-div, .img-div-venmo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        background-color: white;
+        border-radius: 0px;
+        max-width: 400px;
+        margin: 0 auto; /* Center the container itself */
+    }
+
+    /* Ensure images are centered inside their container */
+    .payment-details img {
+        display: block;
+        max-width: 100%; /* Ensure it scales properly */
+        height: auto;
+        margin: 0 auto; /* Center the image */
+    }
+
+
     /* Calendly widget container */
     .calendly-widget-container {
         margin-top: 0px; /* Adjust to prevent overlap with the header */
@@ -63,7 +93,7 @@
         justify-content: center;
         padding: 20px;
         background-color: #f7f7f7; /* Light background color */
-        border-radius: 10px;
+        /* border-radius: 10px; */
         z-index: 0;
         width: 60%;
     }
@@ -75,8 +105,7 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 60px 20px;
-        /* background-color: #333; */
-        border-radius: 10px;
+        border-radius:0;
         height: 100%;
     }
 
@@ -84,9 +113,13 @@
     .schedule-page-header {
         margin-bottom: 30px;
         color: #412612;
-        background-color: #cce6d0;
+        background-color: white;
         padding: 20px;
-        border-radius: 5px;
+        border-radius: 0;
+        border-width : 2px;
+        border-style: solid;
+        border-color: #255238;
+        text-align: center;
     }
 
     /* Payment details alignment */

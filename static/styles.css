@@ -82,6 +82,7 @@ div.row.mt4.schedule-now{
     text-align: center; /* Center text inside the container */
     height: 100%; /* Set a height for demonstration */
     padding: 20px; /* Add some padding */
+    
 }
 
 .services-container-header{
@@ -91,17 +92,31 @@ div.row.mt4.schedule-now{
 }
 
 .services-container-text{
+    margin-top : 200px;
     border-color:#4b2f1a;
     border-style:solid;
     border-width:2px;
     padding: 100px;
     height: 100%;
+    background-color: #789785;
 }
-
 
 .services-container-text li{
     margin-top:100px;
     list-style:none;
+}
+
+.services-container-text h1{
+    background-color: white;
+    border-radius: 0 ;
+    border-width : 2px;
+    border-style : solid;
+    border-color : #255238;
+    padding : 10px;
+}
+
+.services-container-text p{
+    color : white;
 }
 
 /* Header Styles */
@@ -140,7 +155,7 @@ header a:hover {
     /* Optional: add padding or margin if needed */
     padding: 20px; /* Add some padding */
     background-color:white;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     border-color: #255238;
     border-style: solid;
     border-width: 2px;
@@ -161,7 +176,13 @@ h1{
 
 .logo{
     color : rgb(15, 39, 15);
-    font-size : xx-large
+    font-size : xx-large;
+    background-color:white;
+    border-radius: 0px;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
 }
 
 .logo:hover{
@@ -279,7 +300,12 @@ footer {
 }
 
 footer h3{
-    color : rgb(131, 161, 131)
+    color : rgb(131, 161, 131);
+    background-color: white;
+    padding: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #255238;
 }
 
 footer ul {
@@ -291,8 +317,14 @@ footer ul {
 }
 
 footer a {
-    color: white; /* Link color */
+    margin-top: 10px;
+    color:#4b2f1a; /* Link color */
+    background-color:#60ad73;
     text-decoration: none; /* No underline */
+    border-width : 2px;
+    border-style: solid;
+    border-color: #255238;
+    padding: 5px;
 }
 
 footer a:hover {

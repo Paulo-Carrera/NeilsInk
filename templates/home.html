@@ -6,7 +6,7 @@
     <main class="flex-fill">
 
         <!-- Schedule Section -->
-        <div class="row mt-4 schedule-now" style="color: #789785; background-color: #789785">
+        <div class="row mt-4 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px;">
             <div class="schedule-container">
                 <h1>NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
@@ -61,7 +61,7 @@
                         <details>
                             <summary class="question">What are your working hours?</summary>
                             <div class="answer">
-                                <p>We are open from 10 AM to 8 PM, Monday through Saturday.</p>
+                                <p>Availability varies depending on your location and the desired service. Please see our <a href="/contact">Contact Us</a> page for more information.</p>
                             </div>
                         </details>
                     </li>
@@ -78,26 +78,35 @@
             margin-bottom: 10px;
             border: 1px solid #ddd;
             padding: 10px;
-            border-radius: 5px;;
+            /* border-radius: 5px;; */
             background-color: #789785;
             color: white;
+            border-width : 2px;
+            border-style : solid;
+            border-color : #255238;
+            border-radius : 0px;
+            padding : 10px;
         }
 
         .answer{
-            padding: 10px;
-            background-color:white;
+            
             color:black;
         }
 
         .answer p {
+            background-color:#cce6d0;
             color : black;
+            border-width : 2px;
+            border-style : solid;
+            border-color : #255238;
+            border-radius : 0px;
+            padding : 10px;
         }
 
         summary {
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
-         
         }
 
         summary::after {
@@ -125,6 +134,11 @@
         /* Adjusted styling */
         details[open] .answer {
             max-height: 200px; /* Max height set for smoother transition */
+        }
+
+        .question-dropdowns {
+            padding: 20px;
+            margin-top:1000px;
         }
     </style>
 
