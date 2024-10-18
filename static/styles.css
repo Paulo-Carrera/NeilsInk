@@ -31,7 +31,7 @@ main {
 
 .footer p, .footer a {
     color: white; /* Link color */
-    text-decoration: underline;
+    
 }
 
 .footer-heading {
@@ -328,7 +328,6 @@ footer a {
 }
 
 footer a:hover {
-    text-decoration: underline; /* Underline on hover */
     color: #1a4b2e; /* Darker green on hover */
 }
 
