@@ -393,6 +393,89 @@ footer li{
     color: #06f; /* Change text color on active */
 }
 
+.studio-intro{
+    background-color: #789785;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    color : white ;
+    margin: 20px;
+}
+
+/* GALLERY */
+.gallery-item {
+    display: flex;
+    align-items: stretch; /* Ensures items are aligned and take equal height */
+    margin-bottom: 20px;
+}
+
+.h1-gallery{
+    background-color: white;
+    border-radius: 0 ;
+    border-width : 2px;
+    border-style : solid;
+    border-color : #255238;
+    padding : 10px;
+}
+
+/* Description box styling */
+.gallery-description-container {
+    border: 2px solid #255238;
+    padding: 20px;
+    min-height: 300px; /* Adjust based on the height of your Instagram embed */
+    flex: 1; /* Allows it to grow and match the Instagram embed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+}
+
+/* Instagram container styling */
+.gallery-instagram-container {
+    flex: 1; /* Makes sure both elements take up equal space */
+    min-width: 300px; /* Ensures a minimum width */
+}
+
+.gallery-row{
+    margin : 250px;
+}
+
+
+
+
+/* ABOUT US PAGE */
+.about-us-header{
+    color: #333;
+    background-color: white;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height : auto;
+}
+
+.about-us-text{
+    color: #333;
+    background-color: white;
+    border-color: #255238;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height : auto;
+}
+
 .custom-file-input {
     border: 2px solid #60ad73; /* Add your preferred border color */
     border-radius: 5px;        /* Rounded corners */
@@ -418,7 +501,7 @@ footer li{
     font-size: 14px;
     display: none;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 #backToTop.show {

@@ -48,6 +48,10 @@ def gallery():
 def contact():
     return render_template('contact.html')
 
+@app.route('/about-us')
+def about_us():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
