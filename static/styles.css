@@ -12,6 +12,18 @@ main {
     flex: 1; /* Allow the main content to grow and fill space */
 }
 
+.button-class {
+    margin-top: 10px;
+    color:white; /* Link color */
+    background-color:#60ad73;
+    text-decoration: none; /* No underline */
+    border-width : 2px;
+    border-style: solid;
+    border-color: #1a4b2e;
+    padding: 5px;
+    margin : 15px;
+}
+
 .footer {
     background-color: #f8f9fa; /* Example footer background */
     padding: 10px; /* Example padding */
@@ -395,6 +407,23 @@ footer li{
 
 .custom-file-label {
     color: #ccc;
+}
+
+/* BACK TO TOP BUTTON */
+#backToTop {
+    position: fixed;
+    bottom: calc(70px + 20px); /* Adjust 70px to the height of your footer and 20px for the button's own padding */
+    right: 20px;
+    padding: 10px;
+    font-size: 14px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#backToTop.show {
+    display: block;
+    opacity: 1;
 }
 
 
