@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 schedule-form-container" style="padding: 60px 20px;">
+    <!-- This H1 is now properly inside the container -->
+    <h1 class="schedule-page-header header1">Schedule an Appointment</h1>
+
+    <!-- Calendly Embed Code -->
+    <div class="calendly-widget-container" >
+        <div class="calendly-inline-widget" data-url="https://calendly.com/carreraservices3456/tattoo-piercing" style="min-width:320px;height:630px; width: 100%; max-width: 800px;"></div>
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    
+
+        <a href="/" class="button-59">DONE</a>
+</div>
+
+<!-- CSS -->
+<style>
+    /* Ensure header stays on top */
+    header {
+        position: relative;
+        z-index: 10; /* Higher than any content */
+    }
+
+    label{
+        color: white;
+        font-size: 1.5rem;
+    }
+
+        /* QR Code Image Containers */
+    .img-div, .img-div-venmo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        background-color: white;
+        border-radius: 0px;
+        max-width: 400px;
+        margin: 0 auto; /* Center the container itself */
+    }
+
+    /* Ensure images are centered inside their container */
+    .payment-details img {
+        display: block;
+        max-width: 100%; /* Ensure it scales properly */
+        height: auto;
+        margin: 0 auto; /* Center the image */
+    }
+
+
+    /* Calendly widget container */
+    .calendly-widget-container {
+        margin-top: 0px; /* Adjust to prevent overlap with the header */
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        background-color: #f7f7f7; /* Light background color */
+        /* border-radius: 10px; */
+        z-index: 0;
+        width: 60%;
+    }
+
+    /* General container settings */
+    .schedule-form-container {
+        z-index: 1; /* Ensures it does not overlap the header */
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        border-radius:0;
+        height: 100%;
+    }
+
+    /* Space between sections */
+    .schedule-page-header {
+        margin-bottom: 30px;
+        color: #412612;
+        background-color: white;
+        padding: 20px;
+        border-radius: 0;
+        border-width : 2px;
+        border-style: solid;
+        border-color: #255238;
+        text-align: center;
+    }
+
+    /* Payment details alignment */
+    .payment-details img {
+        margin-bottom: 20px;
+    }
+
+    /* Set background for container if needed */
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .calendly-widget-container {
+            margin-top: 40px;
+            padding: 10px;
+        }
+        .schedule-page-header {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+{% endblock %}

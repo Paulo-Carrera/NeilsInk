@@ -38,6 +38,10 @@ def home():
 def schedule_appointment():
     return render_template('schedule.html')
 
+@app.route('/appointment')
+def appointment():
+    return render_template('calendly.html')
+
 @app.route('/services')
 def services():
     return render_template('services.html')

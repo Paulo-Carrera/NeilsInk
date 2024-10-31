@@ -16,7 +16,7 @@
 
         <!-- Studio Introduction -->
         <div class="container studio-intro mt-5">
-            <h1 class="text-center" style="text-decoration: underline;">NeilsInk Tattoo Studio</h1>
+            <h1 class="text-center">NeilsInk Tattoo Studio</h1>
             <p class="text-center">Your one-stop destination for beautiful tattoos and precise piercings.</p>
         </div>
 
@@ -41,7 +41,7 @@
                         <details>
                             <summary class="question">What is your tattoo studio's location?</summary>
                             <div class="answer">
-                                <p>We are located in the city of El Monte, California. More details will be available upon request.</p>
+                                <p>We are located in the city of <a target="_blank" href = "https://www.google.com/maps/place/El+Monte,+CA/@34.0711626,-118.076481,13z/data=!3m1!4b1!4m6!3m5!1s0x80c2d0a463f6d0ef:0x6b0f018ea5b0374d!8m2!3d34.0686206!4d-118.0275667!16zL20vMHIwOHc?entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">El Monte</a>, California. More details will be available upon request.</p>
                             </div>
                         </details>
                     </li>
@@ -64,6 +64,20 @@
                         </details>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="container mt-5 image-grid">
+            <div class="row">
+                {% for card in image_cards %}
+                    <div class="col-md-6 mb-4">
+                        <a href="{{ card.link }}" target="_blank">
+                            <div class="image-card">
+                                <img src="{{ url_for('static', filename=card.filename) }}" alt="Gallery Image" class="img-fluid">
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
 
@@ -130,6 +144,9 @@
             justify-content: center;
             align-items: center;
             background-color: lightgrey;
+            margin-top : 100px;
+            margin-bottom : 100px;
+            border : 4px solid #4b2f1a;
         }
 
         /* Set each slide to be centered and the same size */
@@ -208,8 +225,8 @@
             showSlide(currentSlide);
         }
 
-        // Automatically cycle through slides every 4.5 seconds
-        setInterval(nextSlide, 4500);
+        // Automatically cycle through slides every 4 seconds
+        setInterval(nextSlide, 4000);
 
         // Initialize the first slide as visible
         showSlide(currentSlide);

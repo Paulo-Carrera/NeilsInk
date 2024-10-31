@@ -140,7 +140,7 @@ header {
     height : 100px;
     position:sticky;
     top:0;
-    height : 1000px;
+    height : auto;
 }
 
 header h1 {
@@ -160,8 +160,10 @@ header a:hover {
     justify-content: center; /* Center items vertically */
     align-items: center; /* Center items horizontally */
     text-align: center; /* Center text inside the container */
-    height: 1000px; /* Set a height for demonstration */
+    height: 1500px; /* Set a height for demonstration */
+    top:0;
 }
+
 
 .schedule-container {
     /* Optional: add padding or margin if needed */
