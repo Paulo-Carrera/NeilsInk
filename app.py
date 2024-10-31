@@ -30,7 +30,9 @@ def allowed_file(filename):
 # Define routes
 @app.route('/')
 def home():
-    return render_template('home.html')
+    img_folder = os.path.join(app.static_folder, 'img')
+    images = [f"img/{file}" for file in os.listdir(img_folder) if file.endswith(('.jpg', '.png', '.jpeg'))]
+    return render_template('home.html', images = images)
 
 @app.route('/schedule-appointment', methods=['GET', 'POST'])
 def schedule_appointment():
