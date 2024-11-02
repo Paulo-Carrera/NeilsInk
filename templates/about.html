@@ -1,21 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <div class="about-us-header">
-        <h1>About Us</h1>
-    </div>
+<div class="about-us-header text-center">
+    <h1>About Us</h1>
 </div>
 
-<div>
-    <div class="about-us-container">
-        <p class="about-us-text">
-            Welcome to NeilsInk, El Monte’s premier destination for tattoos and piercings. We’re more than just a studio; we’re a creative space where passion and artistry come together to bring your ideas to life. Our talented team of tattoo artists and piercing specialists are dedicated to quality, precision, and a personalized approach, ensuring you feel comfortable and confident with each visit.
-            At NeilsInk, every tattoo and piercing tells a story. Whether you’re looking for a bold, custom design, meaningful lettering, or a new piercing, we’re here to make it happen in a safe and professional environment. From design conception to aftercare, we’re with you every step of the way.
-            Thank you for choosing NeilsInk to bring your vision to life. Book an appointment today and let’s create something unforgettable together!
-        </p>
-    </div>
+<div class="about-us-container text-center">
+    <p class="about-us-text">
+        Welcome to NeilsInk, El Monte’s premier destination for tattoos and piercings. We’re more than just a studio; we’re a creative space where passion and artistry come together to bring your ideas to life. Our talented team of tattoo artists and piercing specialists are dedicated to quality, precision, and a personalized approach, ensuring you feel comfortable and confident with each visit.
+        At NeilsInk, every tattoo and piercing tells a story. Whether you’re looking for a bold, custom design, meaningful lettering, or a new piercing, we’re here to make it happen in a safe and professional environment. From design conception to aftercare, we’re with you every step of the way.
+        Thank you for choosing NeilsInk to bring your vision to life. Book an appointment today and let’s create something unforgettable together!
+    </p>
 </div>
+
+<!-- Add your CSS here -->
+<style>
+    .about-us-header {
+        margin: 20px auto; /* Center the header with auto margin */
+        max-width: 300px; /* Set a smaller max-width for the header */
+        padding: 10px; /* Add some padding for better spacing */
+
+        color: white; /* Text color for better contrast */
+    }
+
+    .about-us-container {
+        margin: 0 auto; /* Center the container */
+        max-width: 600px; /* Set a narrower max-width for the container */
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    .about-us-text {
+        font-size: 16px; /* Smaller font size for the text */
+        line-height: 1.5; /* Improve readability with line height */
+    }
+</style>
+
 {% endblock %}
 
 

@@ -148,6 +148,10 @@ header h1 {
     font-size: 2.5rem; /* Font size for header */
 }
 
+.see-more{
+    margin-bottom : 200px;
+}
+
 header a:hover {
     text-decoration:none;
     color :rgb(36, 83, 36)
