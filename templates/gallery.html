@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div>
+    <h1 class="text-center page-header">Gallery</h1>
+</div>
     <!-- Main Content -->
     <main class="flex-fill">
 
@@ -37,6 +39,14 @@
 
     <!-- CSS Styles -->
     <style>
+        .page-header {
+        border: 2px solid #255238;
+        color: white;
+        text-align: center;
+        background-color: #789785;
+        padding: 5px;
+        }
+
         .slide-show-container {
             position: relative;
             width: 100%;
@@ -69,7 +79,12 @@
         .slide-show-card.active {
             left: 0; /* Bring active slide into view */
             opacity: 1; /* Make it visible */
+
+        .see-more{
+            margin-bottom:0;
         }
+        }
+
     </style>
 
     <!-- JavaScript for Slideshow Functionality -->

@@ -33,7 +33,7 @@ main {
     position: relative; /* Position relative for proper placement */
     bottom: 0; /* Stick to bottom */
     width: 100%; /* Full width */
-    margin-top:250px;
+    margin-top:100px;
 }
 
 .footer p{
@@ -314,7 +314,7 @@ footer {
     position: relative; /* Position relative for proper placement */
     bottom: 0; /* Stick to bottom */
     width: 100%; /* Full width */
-    margin-top:250px;
+    margin-top: 0px;
 }
 
 footer h3{

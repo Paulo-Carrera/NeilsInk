@@ -52,7 +52,7 @@ def gallery():
     piercings_images = [
         'Screenshot 2024-11-02 000324.png',
         'Screenshot 2024-11-02 000414.png',
-        'Screenshot 2024-11-02 000527.png'
+        'Screenshot 2024-11-02 161627.png'
     ]
     tattoos_images = [
         'Screenshot 2024-11-02 001347.png',

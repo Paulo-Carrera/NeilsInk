@@ -6,7 +6,7 @@
     <main class="flex-fill">
 
         <!-- Schedule Section -->
-        <div class="row mt-4 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px;">
+        <div class="row mt-0 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px;">
             <div class="schedule-container">
                 <h1>NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
@@ -40,16 +40,16 @@
             <div class="faq container">
                 <h2>Frequently Asked Questions</h2>
                 <ul class="list-unstyled">
-                    <!-- Question 1 -->
+                    <!-- Question -->
                     <li>
                         <details>
                             <summary class="question">What is your tattoo studio's location?</summary>
                             <div class="answer">
-                                <p>We are located in the city of <a target="_blank" href = "https://www.google.com/maps/place/El+Monte,+CA/@34.0711626,-118.076481,13z/data=!3m1!4b1!4m6!3m5!1s0x80c2d0a463f6d0ef:0x6b0f018ea5b0374d!8m2!3d34.0686206!4d-118.0275667!16zL20vMHIwOHc?entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">El Monte</a>, California. More details will be available upon request.</p>
+                                <p>We are located in the city of <a target="_blank" href="https://www.google.com/maps/place/El+Monte,+CA/@34.0711626,-118.076481,13z/data=!3m1!4b1!4m6!3m5!1s0x80c2d0a463f6d0ef:0x6b0f018ea5b0374d!8m2!3d34.0686206!4d-118.0275667!16zL20vMHIwOHc?entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">El Monte</a>, California. More details will be available upon request.</p>
                             </div>
                         </details>
                     </li>
-                    <!-- Question 2 -->
+                    <!-- Question -->
                     <li>
                         <details>
                             <summary class="question">How do I schedule an appointment?</summary>
@@ -58,12 +58,50 @@
                             </div>
                         </details>
                     </li>
-                    <!-- Question 3 -->
+                    <!-- Question -->
+                    <li>
+                        <details>
+                            <summary class="question">What payment methods do you accept?</summary>
+                            <div class="answer">
+                                <p>You can pay for your deposit via cash, CashApp, Venmo, or PayPal in person or online through the <a href="/schedule-appointment">Schedule Now</a> page.</p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question -->
                     <li>
                         <details>
                             <summary class="question">What are your working hours?</summary>
                             <div class="answer">
-                                <p>Availability varies depending on your location and the desired service. Please see our <a href="/contact">Contact Us</a> page for more information.</p>
+                                <p>Availability varies depending on your location and the desired service. We are flexible and are open to any time that is convenient for you. 
+                                    If you have any questions, please don't hesitate to contact us on our <a href="/contact">Contact Us</a> page.
+                                </p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question -->
+                    <li>
+                        <details>
+                            <summary class="question">What is your deposit policy?</summary>
+                            <div class="answer">
+                                <p>We require a deposit of $15.00, which you can pay upon scheduling your appointment on the <a href="/schedule-appointment">Schedule Now</a> page, or in person at the studio.</p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question -->
+                    <li>
+                        <details>
+                            <summary class="question">Can I get an estimate for my desired service?</summary>
+                            <div class="answer">
+                                <p>Absolutely! Just send us a message on our <a href="/contact">Contact Us</a> page, and we will provide you with a free estimate.</p>
+                            </div>
+                        </details>
+                    </li>
+                    <!-- Question -->
+                    <li>
+                        <details>
+                            <summary class="question">Do you do walk-ins?</summary>
+                            <div class="answer">
+                                <p>We do not offer walk-in appointments. Please schedule your appointment on our <a href="/schedule-appointment">Schedule Now</a> page to avoid any inconvenience.</p>
                             </div>
                         </details>
                     </li>
@@ -71,18 +109,9 @@
             </div>
         </div>
 
-        <div class="container mt-5 image-grid">
-            <div class="row">
-                {% for card in image_cards %}
-                    <div class="col-md-6 mb-4">
-                        <a href="{{ card.link }}" target="_blank">
-                            <div class="image-card">
-                                <img src="{{ url_for('static', filename=card.filename) }}" alt="Gallery Image" class="img-fluid">
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+        <div class="container text-center mt-5 more-questions">
+            <h2 class="text-center">Have another question?</h2>
+            <p class="text-center">Send us a message on our <a href="/contact">Contact Us</a> page.</p>
         </div>
 
     </main>
@@ -148,8 +177,8 @@
             justify-content: center;
             align-items: center;
             background-color: lightgrey;
-            margin-top : 200px;
-            border : 4px solid #4b2f1a;
+            margin-top: auto;
+            border: 4px solid #4b2f1a;
         }
 
         /* Set each slide to be centered and the same size */
@@ -186,6 +215,21 @@
             justify-content: center;
         }
 
+        /* Additional styles to eliminate gaps */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        main.flex-fill {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .schedule-now {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
     </style>
 
     <!-- Add your JavaScript for smooth transitions -->
@@ -209,16 +253,13 @@
         });
 
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide-show-card');
+        const slides = document.querySelectorAll(".slide-show-card");
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                slide.classList.remove('active');
+                slide.classList.remove("active");
                 if (i === index) {
-                    slide.classList.add('active');
-                    slide.style.left = '0'; // Position active slide in view
-                } else {
-                    slide.style.left = '100%'; // Move inactive slides off-screen
+                    slide.classList.add("active");
                 }
             });
         }
@@ -228,14 +269,11 @@
             showSlide(currentSlide);
         }
 
-        // Automatically cycle through slides every 4 seconds
-        setInterval(nextSlide, 4000);
-
-        // Initialize the first slide as visible
-        showSlide(currentSlide);
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
     </script>
 
 {% endblock %}
+
 
 
 
