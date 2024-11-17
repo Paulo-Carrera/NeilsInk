@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+
+{% block page_header %}
     <h1 class="text-center page-header">Contact Us</h1>
-</div>
+{% endblock %}
 
 <div>
     <p class="text-center subtitle">We're here to help. Send us a message and we'll get back to you as soon as possible.</p>
@@ -32,7 +33,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: auto;
+        height: 25vh;
+        width: 600px;
         border: 2px solid #255238;
         background-color: #789785;
     }
@@ -41,13 +43,13 @@
         list-style: none;
     }
 
-    .page-header {
+    /* .page-header {
         border: 2px solid #255238;
         color: white;
         text-align: center;
         background-color: #789785;
         padding:5px;
-    }
+    } */
 
     .button-59 {
         align-items:center;

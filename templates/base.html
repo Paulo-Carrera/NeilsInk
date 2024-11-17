@@ -12,7 +12,7 @@
 <body>
 
     <!-- Navbar -->
-    <header class="mb-0 pb-0" style="z-index:1;">
+    <header class="mb-0 pb-0" style="margin-top: 0; padding-top: 0;">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a href="/" class="navbar-brand logo">NeilsInk</a>
@@ -27,7 +27,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow-1 main-content" style="padding-top: 0; margin-top: 0;">
+    <main class="flex-grow-1 main-content" style="top:0">
         {% block content %}
         <!-- Content will go here -->
         {% endblock %}
@@ -39,7 +39,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container-fluid">
-            <p>&copy; 2024 NeilsInk. All rights reserved.</p>
+            <!-- <p>&copy; 2024 NeilsInk. All rights reserved.</p> -->
+             <p></p>
             <ul class="footer-links">
                 <li>
                     <h3 class="footer-heading">VISIT US</h3>

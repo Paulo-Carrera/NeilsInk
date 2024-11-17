@@ -104,7 +104,7 @@ div.row.mt4.schedule-now{
 }
 
 .services-container-text{
-    margin-top : 200px;
+    margin-top : 20px;
     border-color:#4b2f1a;
     border-style:solid;
     border-width:2px;
@@ -131,31 +131,67 @@ div.row.mt4.schedule-now{
     color : white;
 }
 
+.services-list{
+    margin-top:25px;
+}
+
+#more-questions{
+    border : 2px solid #255238;
+}
 /* Header Styles */
+/* Sticky Header */
 header {
-    background-color: #cce6d0; /* Dark grey for header */
-    color: white; /* White text for contrast */
-    padding: 20px 0; /* Padding for header */
-    text-align: center; /* Center align text */
-    height : 100px;
-    position:sticky;
-    top:0;
-    height : auto;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Higher z-index to stay on top */
+    background-color: #cce6d0;
+    color: white;
+    padding: 20px 0;
+    height: 100px;
+    text-align: center;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Add subtle shadow for separation */
 }
 
 header h1 {
-    margin: 0; /* No margin for header title */
-    font-size: 2.5rem; /* Font size for header */
-}
-
-.see-more{
-    margin-bottom : 200px;
+    margin: 0; /* Removes default margin for cleaner layout */
+    font-size: 2.5rem; /* Adjusted font size for a modern look */
+    line-height: 1; /* Ensures text stays vertically centered */
 }
 
 header a:hover {
-    text-decoration:none;
-    color :rgb(36, 83, 36)
+    text-decoration: none; /* Removes underline on hover */
+    color: rgb(36, 83, 36); /* Subtle hover effect for links */
 }
+
+/* Sticky Page Header */
+.page-header {
+    position: sticky;
+    top: 0px; /* Starts below the main header */
+    z-index: 5; /* Lower z-index to sit below the header */
+    background-color: #789785;
+    border: 2px solid #255238;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.see-more {
+    margin-bottom: 200px; /* Keeps spacing between sections */
+}
+
+body {
+    margin: 0; /* Removes default margin for a seamless layout */
+    padding: 0; /* Ensures no unwanted gaps around the viewport */
+    font-family: Arial, sans-serif; /* Default font for consistency */
+}
+
+.container {
+    position: relative; /* Ensures proper stacking context for child elements */
+    z-index: 1; /* Keeps the content below the sticky elements */
+}
+
 
 .schedule-now {
     background-color: #789785;
@@ -209,7 +245,7 @@ h1{
 
 /* Navigation Styles */
 nav {
-    margin: 15px 0; /* Margin for nav */
+    margin: 0px 0; /* Margin for nav */
 }
 
 nav ul {

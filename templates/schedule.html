@@ -2,141 +2,116 @@
 
 {% block content %}
 
-<div class="container mt-5 schedule-form-container" style="padding: 60px 20px;">
-    <!-- This H1 is now properly inside the container -->
-    <h1 class="schedule-page-header header1">Schedule an Appointment</h1>
+{% block page_header %}
+    <h1 class="text-center page-header" style="z-index:1">Schedule an Appointment</h1>
+{% endblock %}
 
-
-
-    <h1 style="margin-top:60px" class="schedule-page-header">$15 DEPOSIT REQUIRED</h1>  
-    <p style="color:white">Pay Online or In-Person</p>     
-        <!-- Payment Method Selection -->
-        <div class="mb-3">
-            <label class="form-label text-white">Payment Method</label>
-            <select name="payment_method" class="form-select" id="payment-method-select">
-                <option value="paypal">PayPal</option>
-                <option value="cash_app">Cash App</option>
-                <option value="venmo">Venmo</option>
-            </select>
-        </div>
+<div class="container mt-5 schedule-form-container" style="margin-bottom: 100px;">
+    <h1 style="margin-top: 60px;" class="schedule-page-header">$15 DEPOSIT REQUIRED</h1>     
         
-        <!-- Conditional Payment Details -->
-        <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
-            <h2 class="text-center text-white">Pay with PayPal</h2>
-            <div class="img-div">
-                <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
-            </div>
-            <h3 class="text-center">Scan the QR code to pay using PayPal.</h3>
-        </div>
-        
-        <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-            <h2 class="text-center text-white">Pay with Cash App</h2>
-            <div class="img-div">
-                <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px;">
-            </div>
-            <h3 class="text-center">Scan the QR code to pay using Cash App.</h3>
-        </div>
-        
-        <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-            <h2 class="text-center text-white">Pay with Venmo</h2>
-            <div class="img-div-venmo">
-                <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px; border-radius: 5px">
-            </div>
-            <h3 class="text-center">Scan the QR code to pay using Venmo.</h3>
-        </div>
+    <!-- Payment Method Selection -->
+    <div class="mb-3">
+        <label class="form-label text-white">Payment Method</label>
+        <select name="payment_method" class="form-select" id="payment-method-select">
+            <option value="paypal">PayPal</option>
+            <option value="cash_app">Cash App</option>
+            <option value="venmo">Venmo</option>
+        </select>
+    </div>
 
+    <!-- Conditional Payment Details -->
+    <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
+        <h2 class="text-center text-white">Pay with PayPal</h2>
+        <div class="img-div">
+            <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
+        </div>
+        <h3 class="text-center">Scan the QR code to pay using PayPal.</h3>
+    </div>
+    
+    <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
+        <h2 class="text-center text-white">Pay with Cash App</h2>
+        <div class="img-div">
+            <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
+        </div>
+        <h3 class="text-center">Scan the QR code to pay using Cash App.</h3>
+    </div>
+    
+    <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
+        <h2 class="text-center text-white">Pay with Venmo</h2>
+        <div class="img-div-venmo">
+            <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
+        </div>
+        <h3 class="text-center">Scan the QR code to pay using Venmo.</h3>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div style="text-align: center; margin-top: 20px;">
         <a href="/" class="button-59">BACK</a>
         <a href="/appointment" class="button-59">PAY IN PERSON</a>
         <a href="/appointment" class="button-59">NEXT</a>
+    </div>
 </div>
 
 <!-- CSS -->
 <style>
-    /* Ensure header stays on top */
+    .page-header{
+        z-index:1;
+    }
+    
     header {
-        position: relative;
-        z-index: 10; /* Higher than any content */
+        position: sticky;
+        top: 0; /* Ensure the header is at the top */
+        z-index: 1; /* Set higher z-index to keep it above the content */
     }
 
-    label{
+    label {
         color: white;
         font-size: 1.5rem;
     }
 
-        /* QR Code Image Containers */
     .img-div, .img-div-venmo {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px 0;
         background-color: white;
-        border-radius: 0px;
         max-width: 400px;
-        margin: 0 auto; /* Center the container itself */
+        margin: 0 auto;
     }
 
-    /* Ensure images are centered inside their container */
-    .payment-details img {
-        display: block;
-        max-width: 100%; /* Ensure it scales properly */
-        height: auto;
-        margin: 0 auto; /* Center the image */
-    }
-
-
-    /* Calendly widget container */
-    .calendly-widget-container {
-        margin-top: 0px; /* Adjust to prevent overlap with the header */
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        background-color: #f7f7f7; /* Light background color */
-        /* border-radius: 10px; */
-        z-index: 0;
-        width: 60%;
-    }
-
-    /* General container settings */
     .schedule-form-container {
-        z-index: 1; /* Ensures it does not overlap the header */
+        z-index: 2; /* Lower z-index to keep it below the header */
         position: relative;
         max-width: 1000px;
         margin: 0 auto;
         padding: 60px 20px;
-        border-radius:0;
-        height: 100%;
+        height: auto; /* Adjust height to content */
+        margin-bottom: 80px; /* Space from footer */
+        border-radius: 0; /* Removed border radius */
     }
 
-    /* Space between sections */
     .schedule-page-header {
         margin-bottom: 30px;
         color: #412612;
         background-color: white;
         padding: 20px;
-        border-radius: 0;
-        border-width : 2px;
+        border-width: 2px;
         border-style: solid;
         border-color: #255238;
         text-align: center;
     }
 
-    /* Payment details alignment */
-    .payment-details img {
-        margin-bottom: 20px;
+    .button-59 {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #255238;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
     }
 
-    /* Set background for container if needed */
-
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .calendly-widget-container {
-            margin-top: 40px;
-            padding: 10px;
-        }
-        .schedule-page-header {
-            font-size: 1.5rem;
-        }
+    .button-59:hover {
+        background-color: #1b3c29;
     }
 </style>
 
@@ -146,7 +121,6 @@
 <!-- Include Flatpickr JS -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    // JavaScript to dynamically show/hide payment instructions based on selected method
     document.addEventListener('DOMContentLoaded', function () {
         const paymentMethodField = document.querySelector('select[name="payment_method"]');
         const paymentDetails = {
@@ -157,16 +131,15 @@
 
         function updatePaymentDetails() {
             const selectedMethod = paymentMethodField.value;
-            
-            // Show the correct payment instructions
             Object.keys(paymentDetails).forEach(method => {
                 paymentDetails[method].style.display = method === selectedMethod ? 'block' : 'none';
             });
         }
 
         paymentMethodField.addEventListener('change', updatePaymentDetails);
-        updatePaymentDetails();  // Initial call to set correct display on page load
+        updatePaymentDetails();
     });
 </script>
 
 {% endblock %}
+

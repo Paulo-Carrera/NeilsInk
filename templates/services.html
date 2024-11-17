@@ -2,10 +2,14 @@
 
 {% block content %}
 
+{% block page_header %}
+    <h1 class="text-center page-header">Services</h1>
+{% endblock %}
+
 <div class="services-container">
     <div class="services-container-text">
-        <h1 class="services-container-header">Services Offered by NeilsInk</h1>
-        <ul>
+        <h1 class="services-container-header">SERVICES OFFERED BY NEILSINK</h1>
+        <ul class="services-list">
             <li><h1>Tattoos</h1></li>
             <p>Explore our unique ink art designs that showcase your personality.</p>
             <a href="{{ url_for('schedule_appointment') }}" class="button-class">SCHEDULE NOW</a>
