@@ -3,12 +3,9 @@
 {% block content %}
 
 {% block page_header %}
-    <h1 class="text-center page-header">Schedule an Appointment</h1>
 {% endblock %}
 
 <div class="container mt-5 schedule-form-container" style="padding: 60px 20px;">
-    <!-- This H1 is now properly inside the container -->
-    <h1 class="schedule-page-header header1">Schedule an Appointment</h1>
 
     <!-- Calendly Embed Code -->
     <div class="calendly-widget-container" >
@@ -18,16 +15,13 @@
 
     
 
-        <a href="/" class="button-59">DONE</a>
+        <a href="/" class="button-59" style="margin-top:10px">DONE</a>
 </div>
 
 <!-- CSS -->
 <style>
     /* Ensure header stays on top */
-    header {
-        position: relative;
-        z-index: 10; /* Higher than any content */
-    }
+
 
     label{
         color: white;
@@ -63,7 +57,7 @@
         padding: 20px;
         background-color: #f7f7f7; /* Light background color */
         /* border-radius: 10px; */
-        z-index: 0;
+        z-index: 1;
         width: 60%;
     }
 

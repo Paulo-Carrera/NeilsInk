@@ -6,10 +6,13 @@ html, body {
 body {
     display: flex;
     flex-direction: column; /* Stack the main content and footer vertically */
+    background: white;
 }
 
 main {
     flex: 1; /* Allow the main content to grow and fill space */
+    margin-top:0;
+    padding-top:0;
 }
 
 .button-class {
@@ -143,13 +146,19 @@ div.row.mt4.schedule-now{
 header {
     position: sticky;
     top: 0;
-    z-index: 10; /* Higher z-index to stay on top */
-    background-color: #cce6d0;
-    color: white;
-    padding: 20px 0;
-    height: 100px;
-    text-align: center;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); Add subtle shadow for separation */
+    z-index: 999; /* Ensure it's on top of other content */
+    background-color: #cce6d0; /* Keep the background color */
+    color: white; /* White text color */
+    padding: 0; /* Ensure padding doesn't affect height */
+    height: 300px; /* Fix the height to 100px */
+    text-align: center; /* Center the content inside the header */
+    box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
+}
+
+/* Ensure the navbar inside the header takes full height */
+header nav.navbar {
+    height: 100%; /* Take full height of header */
+    padding: 50px; /* Remove any padding from the navbar */
 }
 
 header h1 {
@@ -161,21 +170,28 @@ header h1 {
 header a:hover {
     text-decoration: none; /* Removes underline on hover */
     color: rgb(36, 83, 36); /* Subtle hover effect for links */
+    cursor:pointer;
 }
 
 /* Sticky Page Header */
 .page-header {
     position: sticky;
-    top: 0px; /* Starts below the main header */
+    top: 100px; /* Starts below the main header */
     z-index: 5; /* Lower z-index to sit below the header */
     background-color: #789785;
-    border: 2px solid #255238;
+    border-top: 2px solid #255238; /* Only keep the top border */
+    border-bottom: 2px solid #255238; /* Keep the bottom border if needed */
+    border-left: none; /* Remove the left border */
+    border-right: none; /* Remove the right border */
     color: white;
     text-align: center;
     padding: 10px;
     font-size: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-top:0;
+    margin-bottom:0;
 }
+
 
 .see-more {
     margin-bottom: 200px; /* Keeps spacing between sections */
@@ -194,26 +210,42 @@ body {
 
 
 .schedule-now {
-    background-color: #789785;
+    position: relative; /* Make sure the background image and overlay are positioned correctly */
+    background-image: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/green-colored-smoke-texture-2-780x585.jpg'); /* Set your background image */
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     display: flex; /* Enable flexbox */
     flex-direction: column; /* Arrange items in a column */
     justify-content: center; /* Center items vertically */
     align-items: center; /* Center items horizontally */
     text-align: center; /* Center text inside the container */
-    height: 1500px; /* Set a height for demonstration */
-    top:0;
+    height: 1000px; /* Set a height for demonstration */
+    top: 0;
 }
 
+/* Add green tint overlay */
+.schedule-now::before {
+    content: ""; /* Empty content to create the pseudo-element */
+    position: absolute; /* Position it over the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(120, 151, 133, 0.6); /* Green tint with transparency */
+    z-index: 0; /* Make sure the overlay is below the content */
+}
 
+/* Content container */
 .schedule-container {
-    /* Optional: add padding or margin if needed */
     padding: 20px; /* Add some padding */
-    background-color:white;
-    /* border-radius: 10px; */
-    border-color: #255238;
+    background-color: white; /* Ensure the content has a white background */
+    border-color: #255238; /* Border color */
     border-style: solid;
     border-width: 2px;
+    z-index: 1; /* Ensure the content stays above the background and overlay */
 }
+
 
 .schedule-form{
     display: flex; /* Enable flexbox */

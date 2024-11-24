@@ -32,25 +32,25 @@ def allowed_file(filename):
 def home():
     img_folder = os.path.join(app.static_folder, 'img')
     images = [f"img/{file}" for file in os.listdir(img_folder) if file.endswith(('.jpg', '.png', '.jpeg'))]
-    return render_template('home.html', images = images)
+    return render_template('home.html', images = images, page_header="Home")
 
 @app.route('/schedule-appointment', methods=['GET', 'POST'])
 def schedule_appointment():
-    return render_template('schedule.html')
+    return render_template('schedule.html', page_header="Schedule an Appointment")
 
 @app.route('/appointment')
 def appointment():
-    return render_template('calendly.html')
+    return render_template('calendly.html', page_header="Schedule an Appointment")
 
 @app.route('/services')
 def services():
-    return render_template('services.html')
+    return render_template('services.html', page_header="Services")
 
 @app.route('/gallery')
 def gallery():
     # Update these filenames to match the actual files you have
     piercings_images = [
-        'Screenshot 2024-11-02 000324.png',
+        'Screenshot 2024-11-23 002044.png',
         'Screenshot 2024-11-02 000414.png',
         'Screenshot 2024-11-02 161627.png'
     ]
@@ -60,16 +60,16 @@ def gallery():
         'Screenshot 2024-11-02 002021.png'
     ]
 
-    return render_template('gallery.html', piercings_images=piercings_images, tattoos_images=tattoos_images)
+    return render_template('gallery.html', piercings_images=piercings_images, tattoos_images=tattoos_images, page_header="Gallery")
 
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('contact.html', page_header="Contact Us")
 
 @app.route('/about-us')
 def about_us():
-    return render_template('about.html')
+    return render_template('about.html', page_header="About Us")
 
 if __name__ == '__main__':
     app.run(debug=True)

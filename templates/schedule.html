@@ -3,12 +3,36 @@
 {% block content %}
 
 {% block page_header %}
-    <h1 class="text-center page-header" style="z-index:1">Schedule an Appointment</h1>
 {% endblock %}
 
-<div class="container mt-5 schedule-form-container" style="margin-bottom: 100px;">
-    <h1 style="margin-top: 60px;" class="schedule-page-header">$15 DEPOSIT REQUIRED</h1>     
-        
+<div class="container mt-5 schedule-form-container" style="margin-top: 20px; margin-bottom: 100px;">
+    <h2 style="margin-top: 60px;" class="schedule-page-header">$15 DEPOSIT REQUIRED</h2>
+
+    <!-- Conditional Payment Details -->
+    <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
+        <h3 class="text-center text-white">Pay with PayPal</h3>
+        <div class="img-div">
+            <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="qr-code img-fluid mx-auto d-block">
+        </div>
+        <h4 class="text-center">Scan the QR code to pay using PayPal.</h4>
+    </div>
+
+    <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
+        <h3 class="text-center text-white">Pay with Cash App</h3>
+        <div class="img-div-cashapp">
+            <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="qr-code img-fluid mx-auto d-block">
+        </div>
+        <h4 class="text-center">Scan the QR code to pay using Cash App.</h4>
+    </div>
+
+    <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
+        <h3 class="text-center text-white">Pay with Venmo</h3>
+        <div class="img-div-venmo">
+            <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="qr-code img-fluid mx-auto d-block">
+        </div>
+        <h4 class="text-center">Scan the QR code to pay using Venmo.</h4>
+    </div>
+
     <!-- Payment Method Selection -->
     <div class="mb-3">
         <label class="form-label text-white">Payment Method</label>
@@ -17,31 +41,6 @@
             <option value="cash_app">Cash App</option>
             <option value="venmo">Venmo</option>
         </select>
-    </div>
-
-    <!-- Conditional Payment Details -->
-    <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
-        <h2 class="text-center text-white">Pay with PayPal</h2>
-        <div class="img-div">
-            <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
-        </div>
-        <h3 class="text-center">Scan the QR code to pay using PayPal.</h3>
-    </div>
-    
-    <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-        <h2 class="text-center text-white">Pay with Cash App</h2>
-        <div class="img-div">
-            <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
-        </div>
-        <h3 class="text-center">Scan the QR code to pay using Cash App.</h3>
-    </div>
-    
-    <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-        <h2 class="text-center text-white">Pay with Venmo</h2>
-        <div class="img-div-venmo">
-            <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="img-fluid mx-auto d-block" style="max-width: 400px;">
-        </div>
-        <h3 class="text-center">Scan the QR code to pay using Venmo.</h3>
     </div>
 
     <!-- Navigation Buttons -->
@@ -54,14 +53,14 @@
 
 <!-- CSS -->
 <style>
-    .page-header{
-        z-index:1;
+    .page-header {
+        z-index: 1;
     }
-    
+
     header {
         position: sticky;
-        top: 0; /* Ensure the header is at the top */
-        z-index: 1; /* Set higher z-index to keep it above the content */
+        top: 0;
+        z-index: 1;
     }
 
     label {
@@ -69,7 +68,7 @@
         font-size: 1.5rem;
     }
 
-    .img-div, .img-div-venmo {
+    .img-div, .img-div-venmo, .img-div-cashapp {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -79,15 +78,28 @@
         margin: 0 auto;
     }
 
+    /* Adjust specific Cash App QR code styling */
+    .img-div-cashapp {
+        align-items: flex-start; /* Align to top */
+        padding-top: 10px; /* Adjust spacing */
+    }
+
+    /* QR code shared size */
+    .qr-code {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+
     .schedule-form-container {
-        z-index: 2; /* Lower z-index to keep it below the header */
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 60px 20px;
-        height: auto; /* Adjust height to content */
-        margin-bottom: 80px; /* Space from footer */
-        border-radius: 0; /* Removed border radius */
+        margin-top : 20px;
+        border-color:#4b2f1a;
+        border-style:solid;
+        border-width:2px;
+        padding: 10px;
+        height: 100%;
+        background-color: #789785;
+        border-radius:0px;
     }
 
     .schedule-page-header {
@@ -101,14 +113,14 @@
         text-align: center;
     }
 
-    .button-59 {
+    /* .button-59 {
         margin: 10px;
         padding: 10px 20px;
         background-color: #255238;
         color: white;
         text-decoration: none;
         border-radius: 5px;
-    }
+    } */
 
     .button-59:hover {
         background-color: #1b3c29;
@@ -142,4 +154,3 @@
 </script>
 
 {% endblock %}
-

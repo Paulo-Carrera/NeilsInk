@@ -3,11 +3,7 @@
 {% block content %}
 
 {% block page_header %}
-    <h1 class="text-center page-header" style=" top: 0px; bottom: 0px">Home</h1>
 {% endblock %}
-
-    <!-- Main Content -->
-    <main class="flex-fill">
 
         <!-- Schedule Section -->
         <div class="row mt-0 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px; top: 0px;">
@@ -113,19 +109,47 @@
             </div>
         </div>
 
-        <div class="container text-center mt-5 more-questions">
+        <div class="container text-center mt-5 more-questions" style="margin-bottom:200px;">
             <h2 class="text-center">Have another question?</h2>
             <p class="text-center">Send us a message on our <a href="/contact">Contact Us</a> page.</p>
         </div>
 
-    </main>
+        <div class="container mt-5 why-us">
+            <h2 class="text-center">Why choose NeilSink?</h2>
+            <ul class="list-unstyled">
+                <li>
+                    <h3 class="why-us-heading">Passion</h3>
+                    <p>NeilsInk is a creative space where passion and artistry come together to bring your ideas to life.
+                        We believe in the power of creativity to transform ordinary into extraordinary.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="why-us-heading">Hygiene</h3>
+                    <p>Our studio is clean and sanitized daily to ensure the safety of our clients and staff.
+                        We also use disposable gloves and clean equipment to ensure that our clients and staff are protected from any potential infection.
+                        Tools and equipment are sanitized before and after use to ensure that they are safe to use.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="why-us-heading">Privacy</h3>
+                    <p>We respect your privacy and will never share your personal information with third parties.
+                       Any information collected will be used for the purpose of providing the desired service and will not be sold or disclosed to anybody who is not involved in the process.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="why-us-heading">Quality</h3>
+                    <p>We use high-quality equipment and products to ensure the best possible results for our clients.
+                        
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+    <!-- </main> -->
 
     <!-- Add your CSS here -->
     <style>
-        /* Styles for the FAQ dropdown */
-        details {
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
+        .why-us{
             background-color: #789785;
             color: white;
             border-width: 2px;
@@ -135,8 +159,29 @@
             padding: 10px;
         }
 
+        .why-us-heading{
+            color: #34495e
+        }
+
+        /* Styles for the FAQ dropdown */
+        details {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background-color: #789785;
+        color: white;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #255238;
+        border-radius: 0px;
+        padding: 10px;
+        }
+
         .answer {
             color: black;
+            overflow: hidden; /* Ensure content is hidden when collapsed */
+            max-height: 0; /* Start collapsed */
+            transition: max-height 0.4s ease, padding 0.4s ease; /* Smooth height change */
+            padding: 0 10px; /* Adjust initial padding */
         }
 
         .answer p {
@@ -147,6 +192,11 @@
             border-color: #255238;
             border-radius: 0px;
             padding: 10px;
+        }
+
+        details[open] .answer {
+            max-height: 300px; /* Large enough to fit content */
+            padding: 10px; /* Add padding when expanded */
         }
 
         summary {
@@ -180,21 +230,33 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: lightgrey;
+            background-color: rgb(178, 184, 180);
             margin-top: auto;
-            border: 4px solid #4b2f1a;
+            border: 1px solid #4b2f1a;
         }
 
         /* Set each slide to be centered and the same size */
+        /* Container for the slideshow (Make sure it's relatively positioned) */
+        .slide-show-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Adjust width */
+            height: 600px; /* Adjust height */
+            overflow: hidden; /* Hide overflowing slides */
+        }
+
+        /* Each slide */
         .slide-show-card {
             width: 100%;
             height: 100%; /* Ensure slides take the full height */
             position: absolute; /* Position them absolutely */
-            left: 100%; /* Start off-screen */
-            transition: left 0.5s ease; /* Smooth left transition */
+            top: 0; /* Align to the top */
+            left: 100%; /* Start off-screen on the right */
+            transition: left 0.5s ease, opacity 0.5s ease; /* Smooth transition for both left and opacity */
             opacity: 0; /* Initially hidden */
         }
 
+        /* Image inside the slide */
         .slide-show-card img {
             width: 100%;
             height: 100%; /* Ensure images fill the height */
@@ -206,6 +268,18 @@
         .slide-show-card.active {
             left: 0; /* Bring into view */
             opacity: 1; /* Make it visible */
+        }
+
+        /* Optional: previous slide in the background */
+        .slide-show-card.prev {
+            left: -100%; /* Move it to the left when it's not active */
+            opacity: 0; /* Make it invisible */
+        }
+
+        /* Optional: next slide in the foreground */
+        .slide-show-card.next {
+            left: 100%; /* Move it to the right for the next one */
+            opacity: 0; /* Make it invisible */
         }
 
         .question-dropdowns {
@@ -238,19 +312,21 @@
 
     <!-- Add your JavaScript for smooth transitions -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+           document.addEventListener("DOMContentLoaded", () => {
             const detailsElements = document.querySelectorAll("details");
-
+        
             detailsElements.forEach((detail) => {
-                // Attach an event listener to each <details> element
-                detail.addEventListener("toggle", function() {
-                    let answer = this.querySelector(".answer");
-
-                    // If details are opened, we set the max-height dynamically
-                    if (this.open) {
-                        answer.style.maxHeight = answer.scrollHeight + "px"; // Dynamically set height
+                const answer = detail.querySelector(".answer");
+            
+                detail.addEventListener("toggle", () => {
+                    if (detail.open) {
+                        // Set max-height dynamically based on content
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.padding = "10px"; // Add padding when expanded
                     } else {
-                        answer.style.maxHeight = 0; // Collapse to 0 when closed
+                        // Collapse with animation
+                        answer.style.maxHeight = 0;
+                        answer.style.padding = "0";
                     }
                 });
             });
@@ -274,6 +350,9 @@
         }
 
         setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+
+        
     </script>
 
 {% endblock %}
