@@ -10,56 +10,102 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div>
-            <h2 class="text-center">GET IN TOUCH</h2>
-            <h3 class="text-center">Contact Us Via:</h3>
-            <ul class="buttons">
-            <li><a href="mailto:neilsink05@gmail.com" class="button-59" target="_blank">Email</a></li>
-            <li><a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">Instagram</a><li>
-            </ul>
-        </div>
+    <div>
+        <h2 class="text-center">GET IN TOUCH!</h2>
+        <h3 class="text-center">Contact Us Via:</h3>
+        <ul class="buttons">
+            <li>
+                <a href="mailto:neilsink05@gmail.com" class="button-59" target="_blank">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 
 <style>
-    h2{
-        color: white;
-    }
+    h2 {
+    color: white;
+    margin-bottom: 20px;
+}
 
+h3 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack the content vertically */
+    height: auto;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the container */
+    padding: 30px;
+    border: 2px solid #255238;
+    background-color: #789785;
+    border-radius: 0px; /* Rounded corners for a cleaner look */
+}
+
+li {
+    list-style: none;
+}
+
+.button-59 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #60ad73; /* Button background */
+    color: #ffffff;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 0px; /* Rounded corners for buttons */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.button-59:hover {
+    background-color: #4e8e57; /* Darker background on hover */
+    transform: translateY(-2px); /* Slight hover effect */
+}
+
+.button-59 i {
+    margin-right: 8px; /* Space between the icon and text */
+    font-size: 20px; /* Icon size */
+}
+
+.subtitle {
+    margin-top: 50px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 25vh;
-        width: 600px;
-        border: 2px solid #255238;
-        background-color: #789785;
+        padding: 20px;
     }
-
-    li{
-        list-style: none;
-    }
-
-    /* .page-header {
-        border: 2px solid #255238;
-        color: white;
-        text-align: center;
-        background-color: #789785;
-        padding:5px;
-    } */
 
     .button-59 {
-        align-items:center;
-        cursor : pointer;
+        width: 100%; /* Make buttons full-width on smaller screens */
     }
-    .subtitle{
-        margin-top: 100px;
-    }
+}
 
-    .buttons{
-        display: flex;
-        justify-content: center;
-    }
 </style>
+
 {% endblock %}

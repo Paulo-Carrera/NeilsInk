@@ -1,39 +1,162 @@
-{%extends 'base.html'%}
-
+{% extends 'base.html' %}
 
 {% block content %}
 
 {% block page_header %}
 {% endblock %}
 
-
 <div class="services-container">
     <div class="services-container-text">
         <h1 class="services-container-header">SERVICES OFFERED BY NEILSINK</h1>
         <ul class="services-list">
-            <li><h1>Tattoos</h1></li>
-            <p>Explore our unique ink art designs that showcase your personality. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, repellendus aliquid. Deserunt dolore amet soluta libero veritatis. Fugit explicabo molestias temporibus laudantium doloribus. Repudiandae dolor modi inventore nulla dolores adipisci.</p>
-            <a href="{{ url_for('schedule_appointment') }}" class="button-class">SCHEDULE NOW</a>
+            <li>
+                <h1>Tattoos</h1>
+                <p>Our tattoo services offer a range of styles, from traditional to modern, ensuring your ink tells your unique story. Whether you're looking for a small symbol or a full sleeve, our experienced artists will work with you to create a design that matches your vision. We use high-quality, safe materials to ensure a comfortable and lasting result.</p>
+                <a href="{{ url_for('schedule_appointment') }}" class="button-class">SCHEDULE NOW</a>
+            </li>
     
-        
-        
-            <li><h1>Piercings</h1></li>
-            <p>Display your piercings in the most creative way. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum vel aliquid dignissimos fugiat, provident debitis dolores, dolorum quaerat qui itaque laboriosam dolor atque odit reprehenderit sapiente est, blanditiis omnis accusamus.</p>
-            <a href="{{ url_for('schedule_appointment') }}" class="button-class">SCHEDULE NOW</a>
-
-
+            <li>
+                <h1>Piercings</h1>
+                <p>Enhance your look with our professional piercing services. We offer a variety of piercing options, including ear, nose, and body piercings, using only sterile, hypoallergenic jewelry for a safe and comfortable experience. Our trained piercers will guide you through the process, ensuring you feel confident and well-informed every step of the way.</p>
+                <a href="{{ url_for('schedule_appointment') }}" class="button-class">SCHEDULE NOW</a>
+            </li>
         </ul>
     </div>
 </div>
 
 <style>
-    .services-container{
-        width:1000px;
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-        margin:0 auto;
-        padding:50px 0;
+    /* Base Styles */
+    .services-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 50px 0;
+    }
+
+    .services-container-text {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .services-container-header {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .services-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .services-list li {
+        margin-bottom: 30px;
+    }
+
+    .services-list h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .services-list p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .button-class {
+    align-items: center;
+    background-color: #60ad73; /* Background color */
+    border: 2px solid #3f634e; /* Border color */
+    box-sizing: border-box; /* Box model */
+    color: #ffffff; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+    display: inline-flex; /* Flex container for centering content */
+    font-family: Inter, sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Font weight */
+    height: 48px; /* Height of the button */
+    width: 140px; /* Set width for a rectangular shape */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    letter-spacing: -.8px; /* Spacing between letters */
+    line-height: 24px; /* Line height */
+    outline: 0; /* No outline */
+    padding: 0; /* No extra padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* No underline */
+    transition: all .3s; /* Transition effects */
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* For Safari */
+    touch-action: manipulation; /* Touch action */
+}
+
+.button-class:focus {
+    color: #171e29; /* Color on focus */
+}
+
+.button-class:hover {
+    border-color: white; /* Change border color on hover */
+    color: white; /* Change text color on hover */
+}
+
+.button-class:active {
+    border-color: #06f; /* Change border color on active */
+    color: #06f; /* Change text color on active */
+}
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .services-container {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .services-container-header {
+            font-size: 1.8rem;
+        }
+
+        .services-list li {
+            margin-bottom: 20px;
+        }
+
+        .services-list h1 {
+            font-size: 1.25rem;
+        }
+
+        .services-list p {
+            font-size: 0.95rem;
+        }
+
+        .button-class {
+            padding: 8px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .services-container {
+            padding: 15px;
+        }
+
+        .services-container-header {
+            font-size: 1.6rem;
+        }
+
+        .services-list h1 {
+            font-size: 1.1rem;
+        }
+
+        .services-list p {
+            font-size: 0.9rem;
+        }
+
+        .button-class {
+            padding: 7px 14px;
+        }
     }
 </style>
+
 {% endblock %}

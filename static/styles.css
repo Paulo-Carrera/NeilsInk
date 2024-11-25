@@ -276,38 +276,95 @@ h1{
 }
 
 /* Navigation Styles */
+/* Navigation Styles */
 nav {
     margin: 0px 0; /* Margin for nav */
 }
 
+/* Remove inline display for nav items */
 nav ul {
-    list-style-type: none; /* No bullet points for list */
-    padding: 0; /* No padding */
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    color: white;
 }
 
+/* Make items stack vertically in mobile view */
 nav li {
-    display: inline; /* Horizontal list items */
-    margin: 0 15px; /* Space between list items */
+    display: block; 
+    margin: 10px 0; /* Add space between list items */
 }
 
-nav li a{
-    color : rgb(57, 67, 70)
+/* On large screens, align items inline */
+@media (min-width: 992px) {
+    nav ul {
+        display: flex;
+        justify-content: flex-end; /* Align the navbar items to the right */
+        margin: 0; /* Remove extra margin */
+    }
+
+    nav li {
+        display: inline-block;
+        margin: 0 15px; /* Space between items on large screens */
+    }
 }
 
-.images{
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    min-height: 300px; /* Set a minimum height if needed */
-}
-
+/* Styling for navbar links */
 nav a {
-    color: #ecf0f1; /* Light grey for links */
+    color: white; /* Light grey for links */
     text-decoration: none; /* No underline */
+    padding: 10px 20px; /* Add padding to make links easier to click */
+    display: block; /* Make links block-level for easier clicking */
 }
 
+/* Change the background color of links when hovered */
 nav a:hover {
     text-decoration: underline; /* Underline on hover */
+    background-color: #555; /* Darker background on hover */
+}
+
+/* Add background to the dropdown (burger menu) */
+.navbar-collapse {
+    background-color: transparent; /* Dark background for contrast */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    padding: 10px 0; /* Add some padding to space out the links */
+    margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
+}
+
+.navbar-collapse.collapse.show {
+    background-color: #333; /* Dark background for contrast */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    padding: 10px 0; /* Add some padding to space out the links */
+    margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
+}
+
+
+/* Optional: Ensure the navbar items are stacked vertically when the burger menu is shown */
+.navbar-nav {
+    padding: 0; /* No extra padding */
+    margin: 0; /* No extra margin */
+    list-style-type: none; /* Remove default list style */
+}
+
+.navbar-nav li {
+    display: block; /* Stack links vertically in mobile view */
+}
+
+/* Ensure the links are block-level and fill the menu */
+.navbar-nav li a {
+    padding: 10px 20px; /* Add padding to make links easier to click */
+    display: block; /* Make links block-level */
+    color: white; /* Light color for links */
+}
+
+/* Add a background on hover for dropdown links */
+.navbar-nav li a:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+}
+
+/* Optional: Styling for the toggle button to ensure it stays visible */
+.navbar-toggler {
+    z-index: 1050; /* Ensure the burger icon is above other content */
 }
 
 /* Main Titles */
@@ -567,6 +624,7 @@ footer li{
 }
 
 /* BACK TO TOP BUTTON */
+/* BACK TO TOP BUTTON */
 #backToTop {
     position: fixed;
     bottom: calc(70px + 20px); /* Adjust 70px to the height of your footer and 20px for the button's own padding */
@@ -582,6 +640,22 @@ footer li{
     display: block;
     opacity: 1;
 }
+
+/* Responsive media query to hide text and show only the icon on small screens */
+@media (max-width: 767px) {
+    #backToTop {
+        font-size: 0; /* Hide the text */
+    }
+    
+    #backToTop:before {
+        content: '\f062'; /* Unicode for the arrow icon */
+        font-family: "Font Awesome 5 Free"; /* Font Awesome for icon */
+        font-weight: 900;
+        font-size: 24px; /* Adjust icon size */
+        color: black; /* Icon color */
+    }
+}
+
 
 
 @media (min-width: 768px) {

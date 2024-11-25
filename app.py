@@ -48,19 +48,16 @@ def services():
 
 @app.route('/gallery')
 def gallery():
-    # Update these filenames to match the actual files you have
-    piercings_images = [
-        'Screenshot 2024-11-23 002044.png',
-        'Screenshot 2024-11-02 000414.png',
-        'Screenshot 2024-11-02 161627.png'
-    ]
-    tattoos_images = [
-        'Screenshot 2024-11-02 001347.png',
-        'Screenshot 2024-11-02 001701.png',
-        'Screenshot 2024-11-02 002021.png'
-    ]
+    # Pass only the filenames
+    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png']
+    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png']
 
-    return render_template('gallery.html', piercings_images=piercings_images, tattoos_images=tattoos_images, page_header="Gallery")
+    return render_template(
+        'gallery.html', 
+        piercings_images=piercings_images, 
+        tattoos_images=tattoos_images, 
+        page_header="Gallery"
+    )
 
 
 @app.route('/contact')

@@ -12,11 +12,13 @@
         
         <!-- Piercings Section -->
         <div class="slide-show">
-            <h2 class="text-center">Piercings</h2>
+            <h2 class="text-center">PIERCINGS</h2>
             <div class="slide-show-container">
                 {% for image in piercings_images %}
                     <div class="slide-show-card">
-                        <img src="{{ url_for('static', filename='piercings-images/' + image) }}" alt="Image of a piercing" loading="lazy">
+                        <img src="{{ url_for('static', filename='piercings-images/' + image) }}" 
+                             alt="Image of a piercing" 
+                             loading="lazy">
                     </div>
                 {% endfor %}
             </div>
@@ -24,11 +26,13 @@
 
         <!-- Tattoos Section -->
         <div class="slide-show">
-            <h2 class="text-center">Tattoos</h2>
+            <h2 class="text-center">TATTOOS</h2>
             <div class="slide-show-container">
                 {% for image in tattoos_images %}
                     <div class="slide-show-card">
-                        <img src="{{ url_for('static', filename='tattoos-images/' + image) }}" alt="Image of a tattoo" loading="lazy">
+                        <img src="{{ url_for('static', filename='tattoos-images/' + image) }}" 
+                             alt="Image of a tattoo" 
+                             loading="lazy">
                     </div>
                 {% endfor %}
             </div>

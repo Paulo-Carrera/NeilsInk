@@ -10,27 +10,27 @@
 
     <!-- Conditional Payment Details -->
     <div id="paypal-info" class="payment-details text-white" style="display: block; padding-bottom: 20px;">
-        <h3 class="text-center text-white">Pay with PayPal</h3>
+        <h3 class="text-center text-white">PayPal</h3>
         <div class="img-div">
             <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h4 class="text-center">Scan the QR code to pay using PayPal.</h4>
+        <h5 class="text-center">SCAN THE QR CODE TO PAY WITH PAYPAL</h5>
     </div>
 
     <div id="cashapp-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-        <h3 class="text-center text-white">Pay with Cash App</h3>
+        <h3 class="text-center text-white">Cash App</h3>
         <div class="img-div-cashapp">
             <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h4 class="text-center">Scan the QR code to pay using Cash App.</h4>
+        <h5 class="text-center">SCAN THE QR CODE TO PAY WITH CASH APP</h5>
     </div>
 
     <div id="venmo-info" class="payment-details text-white" style="display: none; padding-bottom: 20px;">
-        <h3 class="text-center text-white">Pay with Venmo</h3>
+        <h3 class="text-center text-white">Venmo</h3>
         <div class="img-div-venmo">
             <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h4 class="text-center">Scan the QR code to pay using Venmo.</h4>
+        <h5 class="text-center">SCAN THE QR CODE TO PAY WITH VENMO</h5>
     </div>
 
     <!-- Payment Method Selection -->
@@ -84,6 +84,9 @@
         padding-top: 10px; /* Adjust spacing */
     }
 
+    .form-select{
+        cursor: pointer;
+    }
     /* QR code shared size */
     .qr-code {
         width: 300px;
@@ -91,23 +94,50 @@
         object-fit: cover;
     }
 
-    .schedule-form-container {
-        margin-top : 20px;
-        border-color:#4b2f1a;
-        border-style:solid;
-        border-width:2px;
-        padding: 10px;
-        height: 100%;
-        background-color: #789785;
-        border-radius:0px;
+    .img-div, .img-div-venmo, .img-div-cashapp {
+        border: 1px solid #4b2f1a;
     }
+
+    .schedule-form-container {
+    position: relative; /* Ensure the background image and overlay are positioned correctly */
+    margin-top: 20px;
+    border-color: #4b2f1a;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px;
+    height: 100%;
+    background-image: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/green-colored-smoke-texture-2-780x585.jpg'); /* Set your background image */
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    border-radius: 0px;
+}
+
+/* Add green tint overlay */
+.schedule-form-container::before {
+    content: ""; /* Empty content to create the pseudo-element */
+    position: absolute; /* Position it over the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(120, 151, 133, 0.6); /* Green tint with transparency */
+    z-index: 0; /* Make sure the overlay is below the content */
+}
+
+/* Ensure the content stays above the background and overlay */
+.schedule-form-container > * {
+    position: relative; /* Ensure that the content stays above the background and overlay */
+    z-index: 1;
+}
+
 
     .schedule-page-header {
         margin-bottom: 30px;
         color: #412612;
         background-color: white;
         padding: 20px;
-        border-width: 2px;
+        border-width: 1px;
         border-style: solid;
         border-color: #255238;
         text-align: center;
