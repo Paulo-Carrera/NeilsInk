@@ -10,3 +10,5 @@ window.addEventListener("scroll", () => {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+

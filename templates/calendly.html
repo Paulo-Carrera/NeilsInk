@@ -8,10 +8,14 @@
 <div class="container mt-5 schedule-form-container" style="padding: 60px 20px;">
 
     <!-- Calendly Embed Code -->
-    <div class="calendly-widget-container" >
+    <div class="calendly-widget-container">
         <div class="calendly-inline-widget" data-url="https://calendly.com/carreraservices3456/tattoo-piercing" style="min-width:320px;height:630px; width: 100%; max-width: 800px;"></div>
     </div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <div style="text-align:center">
+        <p><small>You will receive a confirmation email once your appointment is confirmed.</small></p>
+    </div>
 
     <div class="buttons" style="text-align: center; margin-top: 20px;">
         <a href="/schedule-appointment" class="button-59" style="margin-top:10px">BACK</a>
@@ -34,6 +38,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        align-self: center;
         padding: 20px 0;
         background-color: white;
         border-radius: 0px;
@@ -52,15 +57,16 @@
 
     /* Calendly widget container */
     .calendly-widget-container {
-        margin-top: 0px; /* Adjust to prevent overlap with the header */
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        background-color: #f7f7f7; /* Light background color */
-        /* border-radius: 10px; */
-        z-index: 1;
-        width: 60%;
-    }
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    padding: 20px; /* Optional padding around the widget */
+    background-color: #f7f7f7; /* Light background color */
+    width: 100%; /* Takes full width of the parent container */
+    max-width: 800px; /* Set a reasonable maximum width */
+    margin: 0 auto; /* Centers the container itself horizontally */
+    min-height: 630px; /* Ensures the height is sufficient for the Calendly widget */
+}
 
     /* General container settings */
     .schedule-form-container {

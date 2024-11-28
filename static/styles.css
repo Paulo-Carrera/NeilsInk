@@ -110,7 +110,7 @@ div.row.mt4.schedule-now{
     margin-top : 20px;
     border-color:#4b2f1a;
     border-style:solid;
-    border-width:2px;
+    border-width:1px;
     padding: 100px;
     height: 100%;
     background-color: #789785;
@@ -124,7 +124,7 @@ div.row.mt4.schedule-now{
 .services-container-text h1{
     background-color: white;
     border-radius: 0 ;
-    border-width : 2px;
+    border-width : 1px;
     border-style : solid;
     border-color : #255238;
     padding : 10px;
@@ -139,7 +139,7 @@ div.row.mt4.schedule-now{
 }
 
 #more-questions{
-    border : 2px solid #255238;
+    border : 1px solid #255238;
 }
 /* Header Styles */
 /* Sticky Header */
@@ -179,8 +179,8 @@ header a:hover {
     top: 100px; /* Starts below the main header */
     z-index: 5; /* Lower z-index to sit below the header */
     background-color: #789785;
-    border-top: 2px solid #255238; /* Only keep the top border */
-    border-bottom: 2px solid #255238; /* Keep the bottom border if needed */
+    border-top: 1px solid #255238; /* Only keep the top border */
+    border-bottom: 1px solid #255238; /* Keep the bottom border if needed */
     border-left: none; /* Remove the left border */
     border-right: none; /* Remove the right border */
     color: white;
@@ -242,7 +242,7 @@ body {
     background-color: white; /* Ensure the content has a white background */
     border-color: #255238; /* Border color */
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     z-index: 1; /* Ensure the content stays above the background and overlay */
 }
 
@@ -267,7 +267,7 @@ h1{
     border-radius: 0px;
     border-color: #255238;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     padding: 5px;
 }
 
@@ -320,22 +320,24 @@ nav a {
 /* Change the background color of links when hovered */
 nav a:hover {
     text-decoration: underline; /* Underline on hover */
-    background-color: #555; /* Darker background on hover */
 }
 
 /* Add background to the dropdown (burger menu) */
 .navbar-collapse {
     background-color: transparent; /* Dark background for contrast */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    border-radius: 0px; /* Optional: Add rounded corners */
     padding: 10px 0; /* Add some padding to space out the links */
     margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
 }
 
 .navbar-collapse.collapse.show {
-    background-color: #333; /* Dark background for contrast */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    background-color: #9e9e9e; /* Dark background for contrast */
+    border: 2px solid #444;
+    color:white;
+    border-radius: 0px; /* Optional: Add rounded corners */
     padding: 10px 0; /* Add some padding to space out the links */
     margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
+    width: 40%;
 }
 
 
@@ -357,10 +359,6 @@ nav a:hover {
     color: white; /* Light color for links */
 }
 
-/* Add a background on hover for dropdown links */
-.navbar-nav li a:hover {
-    background-color: #555; /* Slightly lighter background on hover */
-}
 
 /* Optional: Styling for the toggle button to ensure it stays visible */
 .navbar-toggler {
@@ -416,67 +414,36 @@ h2 {
     color: white; /* White text */
 }
 
-.schedule-form-container{
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Arrange items in a column */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text inside the container */
-    height: 1500px; /* Set a height for demonstration */
-    background-color: rgb(69, 99, 84);
-    border-radius: 10px;
-    border-color: #255238;
-    border-style: solid;
-    border-width: 2px;
-}
-
 /* Footer Styles */
-footer {
-    background-color: rgb(76, 105, 91); /* Background color */
-    color: white; /* Text color */
-    text-align: center; /* Center text */
-    padding: 1rem; /* Padding */
-    position: relative; /* Position relative for proper placement */
-    bottom: 0; /* Stick to bottom */
-    width: 100%; /* Full width */
-    margin-top: 0px;
+.footer {
+    background-color: #140c0c; /* Black background for contrast */
+    padding: 20px 0;
+    text-align: center;
 }
 
-footer h3{
-    color : rgb(131, 161, 131);
-    background-color: white;
-    padding: 5px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #255238;
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
 }
 
-footer ul {
-    list-style-type: none; /* No bullet points for list */
-    padding: 0; /* No padding */
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: space-around; /* Evenly space items */
-    flex-wrap: wrap; /* Wrap items to the next line if they don't fit */
+.footer-links li {
+    display: inline;
+    margin: 0 30px; /* Increased spacing between links */
 }
 
-footer a {
-    margin-top: 10px;
-    color:#4b2f1a; /* Link color */
-    background-color:#60ad73;
-    text-decoration: none; /* No underline */
-    border-width : 2px;
-    border-style: solid;
-    border-color: #255238;
-    padding: 5px;
+.footer-links a {
+    color: silver; /* Silver text */
+    font-size: 1.5rem; /* Adjust size for emphasis */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
 }
 
-footer a:hover {
-    color: #1a4b2e; /* Darker green on hover */
+.footer-links a:hover {
+    color: #fff; /* White text on hover */
 }
 
-footer li{
-    color:#1a4b2e
-}
 
 .text-white{
     color:white;
@@ -528,7 +495,7 @@ footer li{
     background-color: #789785;
     border-color: #255238;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     padding: 10px;
     color : white ;
     margin: 20px;
@@ -544,7 +511,7 @@ footer li{
 .h1-gallery{
     background-color: white;
     border-radius: 0 ;
-    border-width : 2px;
+    border-width : 1px;
     border-style : solid;
     border-color : #255238;
     padding : 10px;
@@ -552,7 +519,7 @@ footer li{
 
 /* Description box styling */
 .gallery-description-container {
-    border: 2px solid #255238;
+    border: 1px solid #255238;
     padding: 20px;
     min-height: 300px; /* Adjust based on the height of your Instagram embed */
     flex: 1; /* Allows it to grow and match the Instagram embed height */
@@ -580,7 +547,7 @@ footer li{
     background-color: white;
     border-color: #255238;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     padding: 10px;
     margin: 20px;
     display: flex;
@@ -596,7 +563,7 @@ footer li{
     background-color: white;
     border-color: #255238;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     padding: 10px;
     margin: 20px;
     display: flex;
@@ -608,7 +575,7 @@ footer li{
 }
 
 .custom-file-input {
-    border: 2px solid #60ad73; /* Add your preferred border color */
+    border: 1px solid #60ad73; /* Add your preferred border color */
     border-radius: 5px;        /* Rounded corners */
     padding: 10px;
     background-color: #333;    /* Dark background */
