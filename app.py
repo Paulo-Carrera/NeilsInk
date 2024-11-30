@@ -44,7 +44,16 @@ def appointment():
 
 @app.route('/services')
 def services():
-    return render_template('services.html', page_header="Services")
+    # Pass only the filenames
+    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png']
+    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png']
+
+    return render_template(
+        'services.html', 
+        piercings_images=piercings_images, 
+        tattoos_images=tattoos_images, 
+        page_header="Services"
+    )
 
 @app.route('/gallery')
 def gallery():

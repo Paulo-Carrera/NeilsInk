@@ -187,7 +187,6 @@ header a:hover {
     text-align: center;
     padding: 10px;
     font-size: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
     margin-top:0;
     margin-bottom:0;
 }
@@ -491,14 +490,26 @@ h2 {
     color: #06f; /* Change text color on active */
 }
 
-.studio-intro{
-    background-color: #789785;
-    border-color: #255238;
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-    color : white ;
-    margin: 20px;
+.studio-intro {
+    color: #4b2f1a;
+    text-align: center; /* Center all child elements */
+}
+
+.studio-intro h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #bcc6cc;
+    border-bottom: 2px solid #bcc6cc;
+    display: inline-block; /* Ensure h1 content is inline-block for border alignment */
+    padding-bottom: 10px;
+    margin: 0 auto; /* Center the h1 itself */
+}
+
+.studio-intro p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px; /* Add spacing below h1 */
+    text-align: center; /* Ensure text is centered */
 }
 
 /* GALLERY */

@@ -22,85 +22,33 @@
 
 <!-- Add your CSS here -->
 <style>
+    .about-us-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-us-header {
+        margin-bottom: 20px;
+    }
+
+    .about-us-text-container {
+        margin-bottom: 40px;
+    }
+
+    .about-us-text {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
     .casual-link {
-        color:green;
-        text-decoration: none; /* Remove underline for a clean look */
-        font-weight: bold; /* Make the text bold */
+        color: #60ad73;
+        text-decoration: none;
     }
 
     .casual-link:hover {
-        text-decoration: underline; /* Add underline on hover for interactivity */
-        color: #255238; /* Slightly darker color on hover */
-    }
-    /* Main container with background */
-    .about-us-container {
-        position: relative;
-        background-image: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/green-colored-smoke-texture-2-780x585.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding: 50px 0;
-        color: white; /* Ensure text stands out */
-        margin-bottom:0;
-        height:100%;
-        border: 1px solid #255238;
+        text-decoration: underline;
     }
 
-    /* Semi-transparent overlay */
-    .about-us-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(120, 151, 133, 0.6); /* Dark overlay for better contrast */
-        z-index: 0; /* Keep it behind content */
-    }
-
-    /* Header styling */
-    .about-us-header {
-        position: relative;
-        z-index: 1; /* Place above the overlay */
-        margin: 20px auto;
-        max-width: 300px;
-        padding: 10px;
-        color: white;
-        font-size: 2rem;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
-    /* Text container */
-    .about-us-text-container {
-        position: relative;
-        z-index: 1; /* Place above the overlay */
-        margin: 0 auto;
-        max-width: 800px; /* Wider max width for readability */
-        padding: 20px;
-    }
-
-    /* Paragraph text styling */
-    .about-us-text {
-        font-size: 18px;
-        line-height: 1.8;
-        color: darkslategray; /* Light gray for smoother readability */
-    }
-
-    /* Media query for smaller screens */
-    @media (max-width: 768px) {
-        .about-us-header {
-            font-size: 1.5rem;
-        }
-
-        .about-us-text {
-            font-size: 16px;
-        }
-
-        .about-us-container {
-            padding: 30px 10px;
-        }
-    }
 </style>
 {% endblock %}
 
