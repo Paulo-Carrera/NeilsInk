@@ -7,11 +7,11 @@
 
         <!-- Schedule Section -->
         <div class="row mt-0 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px; top: 0px;">
-            <div class="schedule-container">
+            <div class="schedule-container" id="schedule-container">
                 <h1>NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
                 <!-- <h3>---</h3> -->
-                <a class="button-59" href="/schedule-appointment" style="margin-top:30px; margin-bottom: 20px;">SCHEDULE NOW</a>
+                <a class="button-59" href="/schedule-appointment" style="margin-top:30px; margin-bottom: 20px;" id="schedule-button">SCHEDULE NOW</a>
             </div>
         </div>
 
@@ -172,6 +172,181 @@
 
     <!-- Add your CSS here -->
     <style>
+.schedule-now {
+    position: relative; /* Position the div for proper z-index stacking */
+    background-image: url('https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/green-colored-smoke-texture-2-780x585.jpg');
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image within the div */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    display: flex; /* Flexbox to align content */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    height: 1000px; /* Set desired height */
+    z-index: 0; /* Ensure it is at the base layer */
+    overflow: hidden; /* Prevents content from overflowing */
+}
+
+/* Green tint overlay */
+.schedule-now::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(120, 151, 133, 0.6); /* Semi-transparent green tint */
+    z-index: 1; /* Places the overlay above the background image */
+}
+
+/* Content container */
+.schedule-container {
+    position: relative; /* Keep content above the overlay */
+    padding: 20px;
+    background-color: white; /* Slight transparency for content background */
+    border: 1px solid #255238; /* Green border for styling */
+    z-index: 2; /* Ensures content appears above overlay and image */
+}
+
+/* Responsive styles for smaller devices */
+@media (max-width: 768px) { /* For tablets and smaller screens */
+    .schedule-now {
+        height: 600px; /* Reduce height for smaller screens */
+    }
+    .schedule-container {
+        padding: 10px; /* Reduce padding */
+    }
+}
+
+@media (max-width: 480px) { /* For phones */
+    .schedule-now {
+        height: 400px; /* Further reduce height */
+    }
+    .schedule-container {
+        padding: 5px; /* Minimize padding */
+        font-size: 14px; /* Adjust font size */
+    }
+    .schedule-container h1, .schedule-container h2 {
+        font-size: 1.5em; /* Scale headings */
+    }
+    .schedule-container a {
+        font-size: 0.9em; /* Adjust button text size */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 480px) { /* For phones */
+    /* Reduce slideshow dimensions */
+    .slide-show-container {
+        max-width: 100%; /* Allow the slideshow to take the full width */
+        height: 300px; /* Reduce height for smaller screens */
+    }
+    .slide-show-card img {
+        object-fit: contain; /* Ensure the image scales without cropping */
+    }
+
+    /* Adjust the FAQ dropdowns */
+    details {
+        font-size: 0.9em; /* Slightly smaller font */
+    }
+
+    summary {
+        font-size: 1em; /* Adjust size to fit better */
+    }
+
+    /* Reduce padding for smaller screens */
+    .schedule-container {
+        padding: 10px;
+    }
+
+    /* Optimize content within the schedule-now section */
+    .schedule-now {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 15px; /* Reduce padding */
+    }
+
+    /* Adjust FAQ question container */
+    .question-dropdowns {
+        margin-top: 500px; /* Adjust space to fit better */
+    }
+
+    /* Ensure buttons in forms scale */
+    .schedule-container a {
+        padding: 8px 12px; /* Adjust padding */
+        font-size: 0.85em; /* Scale font */
+    }
+}
+
+@media (max-width: 320px) { /* For very small screens */
+    /* Further reduce slideshow height */
+    .slide-show-container {
+        height: 200px;
+    }
+
+    /* Adjust schedule-now content */
+    .schedule-now {
+        padding: 10px;
+    }
+
+    /* Reduce font sizes for FAQ dropdowns */
+    details {
+        font-size: 0.8em;
+    }
+
+    /* Adjust padding in container */
+    .schedule-container {
+        padding: 8px;
+    }
+
+    /* Scale buttons and links */
+    .schedule-container a {
+        padding: 6px 10px;
+        font-size: 0.75em;
+    }
+}
+
+
+@media (max-width: 320px) { /* For very small screens */
+    /* Further reduce slideshow height */
+    .slide-show-container {
+        height: 200px;
+    }
+
+    /* Adjust schedule-now content */
+    .schedule-now {
+        padding: 10px;
+    }
+
+    /* Reduce font sizes for FAQ dropdowns */
+    details {
+        font-size: 0.8em;
+    }
+
+    /* Adjust padding in container */
+    .schedule-container {
+        padding: 8px;
+    }
+
+    /* Scale buttons and links */
+    .schedule-container a {
+        padding: 6px 10px;
+        font-size: 0.75em;
+    }
+}
+
+
+
+
+
+.schedule-form{
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the container */
+    height: 1000px; /* Set a height for demonstration */
+}
         .why-us{
             background-color: white;
             color: darkslategray;  
@@ -372,12 +547,20 @@
 
         setInterval(nextSlide, 3000); // Change slide every 3 seconds
 
+        window.onload = function() {
+            const scheduleButton = document.getElementById('schedule-container');
+            if (scheduleButton) {
+                scheduleButton.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        };
 
         
     </script>
 
 {% endblock %}
-
 
 
 

@@ -23,6 +23,7 @@
                     </div>
                 {% endfor %}
             </div>
+            <a class="button-59 center button-60" href="/schedule-appointment">SCHEDULE NOW</a>
         </div>
 
         <!-- Tattoos Section -->
@@ -38,15 +39,20 @@
                     </div>
                 {% endfor %}
             </div>
+            <a class="button-59 center button-60" href="/schedule-appointment">SCHEDULE NOW</a>
         </div>
 
     </div>
 
-    <!-- See More Button -->
+    <div style="height: 200px;"></div> <!-- Spacer -->
     <div class="container text-center mt-5 see-more">
-        <a href="/" class="button-59">HOME</a>
-        <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">SEE MORE</a>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="/" class="button-59">HOME</a>
+            <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">SEE MORE</a>
+        </div>
     </div>
+    
+
 
     <!-- Modal for Image Preview -->
     <div id="imageModal" class="modal">
@@ -60,6 +66,20 @@
 
 <!-- CSS Styles -->
 <style>
+    .see-more {
+        margin-top:200px;
+    }
+
+    .center{
+        display: block;
+        margin-top:20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .button-60 {
+        padding-top:10px;
+    }
     .gallery-header {
         font-size: 2.5rem;
         font-weight: bold;
