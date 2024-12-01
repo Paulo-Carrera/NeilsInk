@@ -7,32 +7,34 @@
 
 <!-- Main Content -->
 <main class="flex-fill">
-    <!-- Side-by-Side Slideshows Container -->
-    <div class="container d-flex justify-content-around mt-5 slide-show-wrapper">
+    <!-- Side-by-Side Galleries -->
+    <div class="container d-flex justify-content-around mt-5 gallery-wrapper">
         
         <!-- Piercings Section -->
-        <div class="slide-show">
-            <h2 class="text-center">PIERCINGS</h2>
-            <div class="slide-show-container">
+        <div class="gallery">
+            <h2 class="text-center gallery-header" style="color:#bcc6cc">PIERCINGS</h2>
+            <div class="gallery-grid">
                 {% for image in piercings_images %}
-                    <div class="slide-show-card">
+                    <div class="gallery-card">
                         <img src="{{ url_for('static', filename='piercings-images/' + image) }}" 
                              alt="Image of a piercing" 
-                             loading="lazy">
+                             loading="lazy" 
+                             class="clickable-image">
                     </div>
                 {% endfor %}
             </div>
         </div>
 
         <!-- Tattoos Section -->
-        <div class="slide-show">
-            <h2 class="text-center">TATTOOS</h2>
-            <div class="slide-show-container">
+        <div class="gallery">
+            <h2 class="text-center gallery-header" style="color:#bcc6cc">TATTOOS</h2>
+            <div class="gallery-grid">
                 {% for image in tattoos_images %}
-                    <div class="slide-show-card">
+                    <div class="gallery-card">
                         <img src="{{ url_for('static', filename='tattoos-images/' + image) }}" 
                              alt="Image of a tattoo" 
-                             loading="lazy">
+                             loading="lazy" 
+                             class="clickable-image">
                     </div>
                 {% endfor %}
             </div>
@@ -40,87 +42,212 @@
 
     </div>
 
+    <!-- See More Button -->
     <div class="container text-center mt-5 see-more">
+        <a href="/" class="button-59">HOME</a>
         <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">SEE MORE</a>
+    </div>
+
+    <!-- Modal for Image Preview -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <button class="prev-arrow" aria-label="Previous Image">&#10094;</button>
+        <img class="modal-content" id="modalImage">
+        <button class="next-arrow" aria-label="Next Image">&#10095;</button>
+        <div id="caption"></div>
     </div>
 </main>
 
 <!-- CSS Styles -->
 <style>
-    .slide-show-wrapper {
-        display: flex;
-        gap: 20px;
+    .gallery-header {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #bcc6cc;
+        border-bottom: 2px solid #bcc6cc;
+        display: inline-block;
+        padding-bottom: 10px;
     }
 
-    .slide-show {
+    /* Wrapper for side-by-side categories */
+    .gallery-wrapper {
+        display: flex;
+        gap: 100px;
+        flex-wrap: wrap; /* Makes the layout responsive */
+    }
+
+    .gallery {
         flex: 1;
+        min-width: 300px; /* Minimum width for each gallery */
     }
 
-    .slide-show-container {
-        position: relative;
+    .gallery h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4b2f1a;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Grid layout for images */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+        gap: 10px; /* Compact spacing between images */
+    }
+
+    /* Individual cards for images */
+    .gallery-card {
         width: 100%;
-        height: 400px;
+        aspect-ratio: 1 / 1; /* Ensures images are square */
         overflow: hidden;
-        display: flex;
+        border: 1px solid #4b2f1a;
+        border-radius: 8px;
+    }
+
+    /* Ensure images fill the square */
+    .gallery-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the container */
+        display: block;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-card img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Arrows for image navigation */
+    .prev-arrow,
+    .next-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 30px;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .prev-arrow {
+        left: 10px;
+    }
+
+    .next-arrow {
+        right: 10px;
+    }
+
+    .prev-arrow:hover,
+    .next-arrow:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Modal for image preview */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
         justify-content: center;
         align-items: center;
-        margin: auto;
-        border: 1px solid #4b2f1a;
+        padding: 0; /* Remove any padding */
+        margin: 0; /* Remove any margin */
     }
 
-    .slide-show-card {
-        width: 100%;
-        height: 100%;
+    .modal-content {
+        max-width: 90%; /* Limit width to 90% of the viewport */
+        max-height: 90%; /* Limit height to 90% of the viewport */
+        display: block;
+        object-fit: contain; /* Ensure aspect ratio is preserved */
+        border: none; /* Remove any borders */
+        margin: 0; /* No extra space around the image */
+        padding: 0; /* No internal spacing */
+        box-shadow: none; /* Remove shadow for a clean look */
+    }
+
+    .close {
         position: absolute;
-        left: 100%;
-        transition: left 0.5s ease, opacity 0.5s ease;
-        opacity: 0;
+        top: 15px;
+        right: 25px;
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none; /* Ensure no background for the close button */
+        border: none;
     }
 
-    .slide-show-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .slide-show-card.active {
-        left: 0;
-        opacity: 1;
-    }
-
-    .see-more {
-        margin-bottom: 0;
+    .close:hover,
+    .close:focus {
+        color: #bbbbbb;
+        text-decoration: none;
+        cursor: pointer;
     }
 </style>
 
-<!-- JavaScript for Slideshow Functionality -->
+<!-- JavaScript for Modal Functionality -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const slideshows = document.querySelectorAll('.slide-show-container');
+    document.addEventListener("DOMContentLoaded", function () {
+        // Modal Elements
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.querySelector(".close");
+        const prevArrow = document.querySelector(".prev-arrow");
+        const nextArrow = document.querySelector(".next-arrow");
 
-        slideshows.forEach((slideshow) => {
-            let currentSlide = 0;
-            const slides = slideshow.querySelectorAll('.slide-show-card');
+        // List of images in the gallery
+        const images = document.querySelectorAll(".clickable-image");
 
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
-                        slide.style.left = '0';
-                    } else {
-                        slide.style.left = '100%';
-                    }
-                });
+        let currentIndex = 0; // Tracks the currently displayed image
+
+        // Function to update the modal image
+        function updateModalImage(index) {
+            const image = images[index];
+            modalImg.src = image.src;
+            modalImg.alt = image.alt;
+        }
+
+        // Add click event listeners to images
+        images.forEach((img, index) => {
+            img.addEventListener("click", function () {
+                modal.style.display = "flex";
+                currentIndex = index; // Set current index to clicked image's index
+                updateModalImage(currentIndex);
+            });
+        });
+
+        // Close the modal
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // Close modal when clicking outside the image
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
             }
+        });
 
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
+        // Navigate to previous image
+        prevArrow.addEventListener("click", function () {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateModalImage(currentIndex);
+        });
 
-            setInterval(nextSlide, 4000);
-            showSlide(currentSlide);
+        // Navigate to next image
+        nextArrow.addEventListener("click", function () {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateModalImage(currentIndex);
         });
     });
 </script>

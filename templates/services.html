@@ -58,7 +58,7 @@
             <div class="service-details">
                 <div>
                     <h2 class="service-name">TATTOOS</h2>
-                    <p class="service-description">Discover our creative tattoo designs crafted by skilled artists. We offer a wide range of styles and themes.
+                    <p class="service-description">Discover our creative tattoo designs. We offer a wide range of styles and themes.
                         Tell your story with confidence and artistry.
                     </p>
                 </div>
@@ -84,96 +84,169 @@
 <!-- CSS Styles -->
 <style>
     /* General Styles */
+.services-intro-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #bcc6cc;
+    border-bottom: 2px solid #bcc6cc;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Adjust slideshow wrapper for small screens */
+.slide-show-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Slideshow styling */
+.slide-show {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.slide-show-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: 1px solid #4b2f1a;
+}
+
+.slide-show-card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 100%;
+    transition: left 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.slide-show-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-show-card.active {
+    left: 0;
+    opacity: 1;
+}
+
+/* Service details container */
+.service-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    gap: 20px;
+}
+
+/* Service name and description styling */
+.service-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4b2f1a;
+}
+
+.service-description {
+    font-size: 1rem;
+    color: #666;
+    max-width: 60%;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0;
+    padding-left: 20px;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Schedule Button */
+.see-more {
+    margin-top: 30px;
+}
+
+/* CSS Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Adjust title size on small screens */
     .services-intro-title {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #789785;
-        border-bottom: 2px solid #4b2f1a;
-        display: inline-block;
-        padding-bottom: 10px;
+        font-size: 2rem;
     }
 
+    /* Stack the slideshows vertically on small screens */
     .slide-show-wrapper {
-        display: flex;
-        gap: 30px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .slide-show {
-        flex: 1;
-        display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: center;
     }
 
-    .slide-show-container {
-        position: relative;
-        width: 80%;
-        height: 300px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        border: 1px solid #4b2f1a;
-    }
-
-    .slide-show-card {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 100%;
-        transition: left 0.5s ease, opacity 0.5s ease;
-        opacity: 0;
-    }
-
-    .slide-show-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .slide-show-card.active {
-        left: 0;
-        opacity: 1;
-    }
-
     .service-details {
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-top: 20px;
-        text-align: left;
-        width: 80%;
-        gap: 20px;
-    }
-
-    .service-name {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #4b2f1a;
+        width: 100%;
+        text-align: center;
     }
 
     .service-description {
+        max-width: 100%;
+    }
+
+    /* Adjust the schedule button */
+    .see-more a {
+        padding: 15px 30px;
         font-size: 1rem;
-        color: #666;
-        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjust title size for very small screens */
+    .services-intro-title {
+        font-size: 1.5rem;
+    }
+
+    .slide-show-container {
+        height: 250px;
+    }
+
+    .service-name {
+        font-size: 1.25rem;
+    }
+
+    .service-description {
+        font-size: 0.9rem;
     }
 
     ul {
-        list-style-type: disc;
-        margin: 0;
-        padding-left: 20px;
-        color: #333;
+        font-size: 0.9rem;
+    }
+
+    .see-more a {
         font-size: 1rem;
-        line-height: 1.5;
+        padding: 12px 25px;
     }
-
-    ul li {
-        margin-bottom: 5px;
-    }
-
+}
 
 </style>
 

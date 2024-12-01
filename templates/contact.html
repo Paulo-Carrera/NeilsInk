@@ -5,107 +5,175 @@
 {% block page_header %}
 {% endblock %}
 
-<div>
-    <p class="text-center subtitle">We're here to help. Send us a message and we'll get back to you as soon as possible.</p>
-</div>
+<div class="contact-us-container">
+    <!-- Left Side: Title and Description -->
+    <div class="contact-left">
+        <h1 class="contact-title">Get in Touch</h1>
+        <p class="contact-description">
+            Have questions? We're here to help! Whether you need assistance, an estimate for a service, or any other inquiries, reach out to us anytime and we will get back to you as soon as possible. We're available via email or you can use the contact methods below.
+        </p>
+        <p class="contact-description">
+            Don't hesitate to ask about our latest services, booking options, or special offers. We look forward to hearing from you!
+        </p>
+    </div>
 
-<div class="container">
-    <div>
-        <h2 class="text-center">GET IN TOUCH!</h2>
-        <h3 class="text-center">Contact Us Via:</h3>
-        <ul class="buttons">
+    <!-- Right Side: Contact Methods -->
+    <div class="contact-right">
+        <h2 class="contact-method-title">Contact Methods</h2>
+        <ul class="contact-methods">
             <li>
-                <a href="mailto:neilsink05@gmail.com" class="button-59" target="_blank">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">
+                <a href="https://www.instagram.com/neilsink_/" class="button-59">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
             </li>
+            <li>
+                <a href="mailto:neilsink05@gmail.com" class="button-59">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </li>
+        </ul>
+
+        <h3 class="rules-title">Community Guidelines</h3>
+        <ul class="rules-list">
+            <li><i class="fas fa-check-circle"></i> Be respectful to everyone.</li>
+            <li><i class="fas fa-check-circle"></i> Stay patient as we respond to inquiries.</li>
+            <li><i class="fas fa-check-circle"></i> Keep your messages concise and clear.</li>
+            <li><i class="fas fa-check-circle"></i> Avoid spamming with multiple requests.</li>
+            <li><i class="fas fa-check-circle"></i> Feel free to ask about promotions or custom services.</li>
         </ul>
     </div>
 </div>
 
+<!-- CSS -->
 <style>
-    h2 {
-    color: white;
-    margin-bottom: 20px;
-}
-
-h3 {
-    color: white;
-    margin-bottom: 30px;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack the content vertically */
-    height: auto;
-    width: 100%;
-    max-width: 600px; /* Limit the width of the container */
-    padding: 30px;
-    border: 2px solid #255238;
-    background-color: #789785;
-    border-radius: 0px; /* Rounded corners for a cleaner look */
-}
-
-li {
-    list-style: none;
-}
-
-.button-59 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #60ad73; /* Button background */
-    color: #ffffff;
-    padding: 12px 20px;
-    margin: 10px 0;
-    border-radius: 0px; /* Rounded corners for buttons */
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-.button-59:hover {
-    background-color: #4e8e57; /* Darker background on hover */
-    transform: translateY(-2px); /* Slight hover effect */
-}
-
-.button-59 i {
-    margin-right: 8px; /* Space between the icon and text */
-    font-size: 20px; /* Icon size */
-}
-
-.subtitle {
-    margin-top: 50px;
-    font-size: 18px;
-    color: black;
-    margin-bottom: 40px;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center;
-    justify-content: center;
-}
-
-@media (max-width: 767px) {
-    .container {
-        padding: 20px;
+    /* Main container for the Contact Us section */
+    .contact-us-container {
+        margin-top: 60px;
+        margin-left:auto;
+        margin-right:auto;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        gap: 30px; 
+        padding: 40px 20px; 
+        max-width: 1000px; 
+        min-height: 80vh; 
     }
 
-    .button-59 {
-        width: 100%; /* Make buttons full-width on smaller screens */
+    /* Left Section: Title and Description */
+    .contact-left {
+        flex: 1;
+        max-width: 370px; 
     }
-}
 
+    .contact-title {
+        font-size: 2.8rem;
+        color: #255238;
+        border-bottom: 3px solid #255238;
+        display: inline-block; 
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .contact-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    /* Right Section: Contact Methods */
+    .contact-right {
+        flex: 1; 
+        max-width: 500px; 
+        text-align: left; 
+    }
+
+    .contact-method-title {
+        font-size: 2rem;
+        color: #255238;
+        border-bottom: 3px solid #255238; /* Underline effect */
+        margin-bottom: 15px;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .contact-methods {
+        list-style: none; 
+        padding: 0; 
+        margin: 0; 
+    }
+
+    .contact-methods li {
+        margin-bottom: 15px;
+    }
+
+    .contact-methods a {
+        text-decoration: none; 
+        display: flex;
+        align-items: center; 
+        gap: 12px; 
+        font-size: 1.1rem;
+        color: #ffffff;
+    }
+
+    .contact-methods a:hover {
+        background-color: #255238; 
+        color: #ffffff;
+    }
+
+    /* Rules Section */
+    .rules-title {
+        font-size: 1.5rem;
+        color: #255238;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-bottom: 3px solid #255238; /* Underline effect */
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .rules-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .rules-list li {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        color: #333;
+    }
+
+    .rules-list i {
+        color: #255238;
+        margin-right: 10px;
+    }
+
+    /* Responsiveness for smaller screens */
+    @media (max-width: 768px) {
+        .contact-us-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-left, .contact-right {
+            max-width: 100%;
+        }
+
+        .contact-title {
+            font-size: 2rem;
+        }
+
+        .contact-method-title, .rules-title {
+            font-size: 1.5rem;
+        }
+    }
 </style>
+
+<!-- Font Awesome CDN -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 {% endblock %}

@@ -10,31 +10,36 @@
             <div class="schedule-container">
                 <h1>NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
-                <h3>---</h3>
-                <a class="button-59" href="/schedule-appointment">SCHEDULE NOW</a>
+                <!-- <h3>---</h3> -->
+                <a class="button-59" href="/schedule-appointment" style="margin-top:30px; margin-bottom: 20px;">SCHEDULE NOW</a>
             </div>
         </div>
 
         <!-- Studio Introduction -->
-        <div class="container studio-intro mt-5">
-            <h1 class="text-center">NEILSINK TATTOOS AND PIERCINGS</h1>
-            <p class="text-center">Your one-stop destination for beautiful tattoos and precise piercings.</p>
-        </div>
-
-        <!-- Slide Show Section -->
-        <div class="container slide-show mt-5">
-            <div class="slide-show-container">
-                {% for image in images %}
-                    <div class="slide-show-card">
-                        <img src="{{ url_for('static', filename=image) }}" alt="Image of a tattoo design or piercing" loading="lazy">
-                    </div>
-                {% endfor %}
+        <div class="content-section">
+            <!-- Studio Intro Section -->
+            <div class="container studio-intro mt-5">
+                <h1 class="text-center">NEILSINK TATTOOS AND PIERCINGS</h1>
+                <p class="text-center">Your one-stop destination for beautiful tattoos and precise piercings.</p>
             </div>
-        </div>        
-
-        <div class="container text-center mt-5 see-more">
-            <a href="https://www.instagram.com/neilsink_/" class="button-59" target="_blank">SEE MORE</a>
+        
+            <!-- Slide Show Section -->
+            <div class="container slide-show mt-5">
+                <div class="slide-show-container" onClick="location.href='/gallery'" style="cursor: pointer;">
+                    {% for image in images %}
+                        <div class="slide-show-card">
+                            <img src="{{ url_for('static', filename=image) }}" alt="Image of a tattoo design or piercing" loading="lazy">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        
+            <!-- See More Section -->
+            <div class="container text-center mt-5 see-more">
+                <a href="/gallery" class="button-59">GALLERY</a>
+            </div>
         </div>
+        
 
         <!-- FAQ Section -->
         <div class="row mt-4 question-dropdowns">
@@ -175,7 +180,7 @@
         }
 
         .why-us-heading{
-            color: #34495e
+            color: #34495e;
         }
 
         /* Styles for the FAQ dropdown */

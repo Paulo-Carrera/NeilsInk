@@ -269,99 +269,12 @@ h1{
     border-width: 1px;
     padding: 5px;
 }
+.logo a{
+    padding:5px;
+}
 
 .logo:hover{
     text-decoration:none;
-}
-
-/* Navigation Styles */
-/* Navigation Styles */
-nav {
-    margin: 0px 0; /* Margin for nav */
-}
-
-/* Remove inline display for nav items */
-nav ul {
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-    color: white;
-}
-
-/* Make items stack vertically in mobile view */
-nav li {
-    display: block; 
-    margin: 10px 0; /* Add space between list items */
-}
-
-/* On large screens, align items inline */
-@media (min-width: 992px) {
-    nav ul {
-        display: flex;
-        justify-content: flex-end; /* Align the navbar items to the right */
-        margin: 0; /* Remove extra margin */
-    }
-
-    nav li {
-        display: inline-block;
-        margin: 0 15px; /* Space between items on large screens */
-    }
-}
-
-/* Styling for navbar links */
-nav a {
-    color: white; /* Light grey for links */
-    text-decoration: none; /* No underline */
-    padding: 10px 20px; /* Add padding to make links easier to click */
-    display: block; /* Make links block-level for easier clicking */
-}
-
-/* Change the background color of links when hovered */
-nav a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-/* Add background to the dropdown (burger menu) */
-.navbar-collapse {
-    background-color: transparent; /* Dark background for contrast */
-    border-radius: 0px; /* Optional: Add rounded corners */
-    padding: 10px 0; /* Add some padding to space out the links */
-    margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
-}
-
-.navbar-collapse.collapse.show {
-    background-color: #9e9e9e; /* Dark background for contrast */
-    border: 2px solid #444;
-    color:white;
-    border-radius: 0px; /* Optional: Add rounded corners */
-    padding: 10px 0; /* Add some padding to space out the links */
-    margin-top: 50px; /* Move the dropdown 50px lower (adjusted for better alignment) */
-    width: 40%;
-}
-
-
-/* Optional: Ensure the navbar items are stacked vertically when the burger menu is shown */
-.navbar-nav {
-    padding: 0; /* No extra padding */
-    margin: 0; /* No extra margin */
-    list-style-type: none; /* Remove default list style */
-}
-
-.navbar-nav li {
-    display: block; /* Stack links vertically in mobile view */
-}
-
-/* Ensure the links are block-level and fill the menu */
-.navbar-nav li a {
-    padding: 10px 20px; /* Add padding to make links easier to click */
-    display: block; /* Make links block-level */
-    color: white; /* Light color for links */
-}
-
-
-/* Optional: Styling for the toggle button to ensure it stays visible */
-.navbar-toggler {
-    z-index: 1050; /* Ensure the burger icon is above other content */
 }
 
 /* Main Titles */
@@ -490,7 +403,12 @@ h2 {
     color: #06f; /* Change text color on active */
 }
 
+.content-section {
+    margin-top: 150px; /* Adjust as needed */
+}
+
 .studio-intro {
+    margin-top: 500px;
     color: #4b2f1a;
     text-align: center; /* Center all child elements */
 }
@@ -554,11 +472,8 @@ h2 {
 
 /* ABOUT US PAGE */
 .about-us-header{
-    color: #333;
+    color: #bcc6cc;
     background-color: white;
-    border-color: #255238;
-    border-style: solid;
-    border-width: 1px;
     padding: 10px;
     margin: 20px;
     display: flex;
@@ -574,7 +489,7 @@ h2 {
     background-color: white;
     border-color: #255238;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     padding: 10px;
     margin: 20px;
     display: flex;

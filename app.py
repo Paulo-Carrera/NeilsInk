@@ -2,7 +2,7 @@ import os
 import datetime
 import paypalrestsdk
 from flask import Flask, render_template, request, redirect, url_for, flash
-from forms import AppointmentForm
+# from forms import AppointmentForm
 from flask_wtf.csrf import CSRFProtect
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
@@ -45,8 +45,8 @@ def appointment():
 @app.route('/services')
 def services():
     # Pass only the filenames
-    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png']
-    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png']
+    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png', 'pimg6.png', 'pimg7.png', 'pimg8.png', 'pimg9.png']
+    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png', 'timg6.png', 'timg7.png', 'timg8.png', 'timg9.png']
 
     return render_template(
         'services.html', 
@@ -58,8 +58,8 @@ def services():
 @app.route('/gallery')
 def gallery():
     # Pass only the filenames
-    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png']
-    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png']
+    piercings_images = ['pimg1.png', 'pimg2.png', 'pimg3.png', 'pimg4.png', 'pimg5.png', 'pimg6.png', 'pimg7.png', 'pimg8.png', 'pimg9.png']
+    tattoos_images = ['timg1.png', 'timg2.png', 'timg3.png', 'timg4.png', 'timg5.png', 'timg6.png', 'timg7.png', 'timg8.png', 'timg9.png']
 
     return render_template(
         'gallery.html', 
@@ -79,10 +79,3 @@ def about_us():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-
-
-

@@ -19,21 +19,31 @@
 
     <div class="buttons" style="text-align: center; margin-top: 20px;">
         <a href="/schedule-appointment" class="button-59" style="margin-top:10px">BACK</a>
-        <a href="/" class="button-59" style="margin-top:10px">DONE</a>
+        <a href="javascript:void(0);" id="doneButton" class="button-59" style="margin-top:10px">DONE</a>
+    </div>
+</div>
+
+<!-- Success Popup -->
+<div id="successPopup" class="success-popup">
+    <div class="popup-content">
+        <div class="checkmark-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <!-- <p class="popup-message">Your appointment has been successfully scheduled!</p> -->
     </div>
 </div>
 
 <!-- CSS -->
 <style>
     /* Ensure header stays on top */
-
-
-    label{
+    label {
         color: white;
         font-size: 1.5rem;
     }
 
-        /* QR Code Image Containers */
+    /* QR Code Image Containers */
     .img-div, .img-div-venmo {
         display: flex;
         justify-content: center;
@@ -46,27 +56,18 @@
         margin: 0 auto; /* Center the container itself */
     }
 
-    /* Ensure images are centered inside their container */
-    .payment-details img {
-        display: block;
-        max-width: 100%; /* Ensure it scales properly */
-        height: auto;
-        margin: 0 auto; /* Center the image */
-    }
-
-
     /* Calendly widget container */
     .calendly-widget-container {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    padding: 20px; /* Optional padding around the widget */
-    background-color: #f7f7f7; /* Light background color */
-    width: 100%; /* Takes full width of the parent container */
-    max-width: 800px; /* Set a reasonable maximum width */
-    margin: 0 auto; /* Centers the container itself horizontally */
-    min-height: 630px; /* Ensures the height is sufficient for the Calendly widget */
-}
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center; /* Centers vertically */
+        padding: 20px; /* Optional padding around the widget */
+        background-color: #f7f7f7; /* Light background color */
+        width: 100%; /* Takes full width of the parent container */
+        max-width: 800px; /* Set a reasonable maximum width */
+        margin: 0 auto; /* Centers the container itself horizontally */
+        min-height: 630px; /* Ensures the height is sufficient for the Calendly widget */
+    }
 
     /* General container settings */
     .schedule-form-container {
@@ -75,7 +76,7 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 60px 20px;
-        border-radius:0;
+        border-radius: 0;
         height: 100%;
     }
 
@@ -86,7 +87,7 @@
         background-color: white;
         padding: 20px;
         border-radius: 0;
-        border-width : 1px;
+        border-width: 1px;
         border-style: solid;
         border-color: #255238;
         text-align: center;
@@ -97,8 +98,53 @@
         margin-bottom: 20px;
     }
 
-    /* Set background for container if needed */
+    /* Success Popup */
+    .success-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 9999;
+    }
 
+    .popup-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkmark-container svg {
+        animation: checkmarkAnimation 1s ease-in-out;
+    }
+
+    .popup-message {
+        font-size: 1.2rem;
+        color: #4CAF50;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    /* Keyframes for the checkmark animation */
+    @keyframes checkmarkAnimation {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
@@ -111,5 +157,19 @@
         }
     }
 </style>
+
+<!-- JavaScript for Popup Animation -->
+<script>
+    document.getElementById("doneButton").addEventListener("click", function() {
+        const popup = document.getElementById("successPopup");
+        popup.style.display = "block"; // Show the popup
+
+        // Optionally, hide the popup after a few seconds and redirect to the home page
+        setTimeout(function() {
+            popup.style.display = "none"; // Hide the popup after 3 seconds
+            window.location.href = '/'; // Redirect to home page
+        }, 3000);
+    });
+</script>
 
 {% endblock %}

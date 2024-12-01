@@ -4,31 +4,46 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5 about-us-container">
+<div class="about-us-container">
     <div class="about-us-header text-center">
-        <h1>About Us</h1>
+        <h1 class="about-us-title">About Us</h1>
     </div>
 
     <div class="about-us-text-container text-center">
         <p class="about-us-text">
-            Welcome to NeilsInk, El Monte’s premier destination for tattoos and piercings. We’re more than just a studio; we’re a creative space where passion and artistry come together to bring your ideas to life. Our talented team of tattoo artists and piercing specialists are dedicated to quality, precision, and a personalized approach, ensuring you feel comfortable and confident with each visit.<br>---<br>
+            Welcome to NeilsInk, El Monte’s premier destination for tattoos and piercings. We’re more than just a studio; we’re a creative space where passion and artistry come together to bring your ideas to life. Our talented team of tattoo artists and piercing specialists are dedicated to quality, precision, and a personalized approach, ensuring you feel comfortable and confident with each visit.
+            <br><br>
 
-            At NeilsInk, every tattoo and piercing tells a story. Whether you’re looking for a bold, custom design, meaningful lettering, or a new piercing, we’re here to make it happen in a safe and professional environment. From design conception to aftercare, we’re with you every step of the way.<br>---<br>
+            At NeilsInk, every tattoo and piercing tells a story. Whether you’re looking for a bold, custom design, meaningful lettering, or a new piercing, we’re here to make it happen in a safe and professional environment. From design conception to aftercare, we’re with you every step of the way.
+            <br><br>
             Thank you for choosing NeilsInk to bring your vision to life. <a href="/schedule-appointment" class="casual-link">Book an appointment</a> today and let’s create something unforgettable together!
         </p>
     </div>
-    
 </div>
 
 <!-- Add your CSS here -->
 <style>
     .about-us-container {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .about-us-header {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    .about-us-title {
+        color: #1e2a47;
+        font-size: 36px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #60ad73;
     }
 
     .about-us-text-container {
@@ -37,22 +52,45 @@
 
     .about-us-text {
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 1.8;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+        text-align: justify;
+        display: inline-block;
     }
 
     .casual-link {
         color: #60ad73;
         text-decoration: none;
+        font-weight: bold;
     }
 
     .casual-link:hover {
         text-decoration: underline;
     }
 
+    /* Prevent indentation of text after <a> */
+    .about-us-text a {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        text-decoration: underline;
+    }
+
+    /* Add responsiveness */
+    @media (max-width: 768px) {
+        .about-us-title {
+            font-size: 30px;
+        }
+
+        .about-us-text {
+            font-size: 16px;
+        }
+
+        .about-us-container {
+            padding: 15px;
+        }
+    }
 </style>
 {% endblock %}
-
-
-
-
 

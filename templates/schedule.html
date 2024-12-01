@@ -5,37 +5,37 @@
 {% block page_header %}
 {% endblock %}
 
-<!-- <div class="container mt-5 schedule-form-container" style="margin-top: 20px; margin-bottom: 100px;"> -->
-    <h2 style="margin-top: 60px;" class="schedule-page-header">$15 DEPOSIT REQUIRED</h2>
+<!-- Main Content Wrapper -->
+<div class="container mt-5 schedule-form-container">
 
-    <!-- Conditional Payment Details -->
-    <div id="paypal-info" class="payment-details" style="display: block; padding-bottom: 20px;">
-        <!-- <h3 class="text-center">PayPal</h3> -->
+    <!-- Header for Deposit Info -->
+    <h2 class="schedule-page-header">$15.00 DEPOSIT REQUIRED</h2>
+
+    <!-- Payment Information Section -->
+    <div id="paypal-info" class="payment-details" style="display: block;">
         <div class="img-div">
             <img src="{{ url_for('static', filename='qrcodes/paypal.png') }}" alt="PayPal QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h5 class="text-center">Scan the QR code to pay with <b>PayPal</b></h5>
+        <h5 class="text-center payment-text">Scan the QR code to pay with <b>PayPal</b></h5>
     </div>
 
-    <div id="cashapp-info" class="payment-details " style="display: none; padding-bottom: 20px;">
-        <!-- <h3 class="text-center">Cash App</h3> -->
-        <div class="img-div-cashapp">
+    <div id="cashapp-info" class="payment-details" style="display: none;">
+        <div class="img-div">
             <img src="{{ url_for('static', filename='qrcodes/cashapp.png') }}" alt="Cash App QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h5 class="text-center">Scan the QR code to pay with <b>Cash App</b></h5>
+        <h5 class="text-center payment-text">Scan the QR code to pay with <b>Cash App</b></h5>
     </div>
 
-    <div id="venmo-info" class="payment-details" style="display: none; padding-bottom: 20px;">
-        <!-- <h3 class="text-center ">Venmo</h3> -->
-        <div class="img-div-venmo">
+    <div id="venmo-info" class="payment-details" style="display: none;">
+        <div class="img-div">
             <img src="{{ url_for('static', filename='qrcodes/venmo.png') }}" alt="Venmo QR Code" class="qr-code img-fluid mx-auto d-block">
         </div>
-        <h5 class="text-center">Scan the QR code to pay with <b>Venmo</b></h5>
+        <h5 class="text-center payment-text">Scan the QR code to pay with <b>Venmo</b></h5>
     </div>
 
     <!-- Payment Method Selection -->
     <div class="mb-3 text-center">
-        <label class="form-label text-center">Payment Method</label>
+        <label class="form-label">Choose Payment Method</label>
         <select name="payment_method" class="form-select" id="payment-method-select">
             <option value="paypal">PayPal</option>
             <option value="cash_app">Cash App</option>
@@ -44,84 +44,84 @@
     </div>
 
     <!-- Navigation Buttons -->
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="/" class="button-59">BACK</a>
-        <a href="/appointment" class="button-59">PAY IN PERSON</a>
-        <a href="/appointment" class="button-59">NEXT</a>
+    <div class="text-center mt-4">
+        <a href="/" class="button-59 btn-back">BACK</a>
+        <a href="/appointment" class="button-59 btn-person">PAY IN PERSON</a>
+        <a href="/appointment" class="button-59 btn-next">NEXT</a>
     </div>
-<!-- </div> -->
+</div>
 
-<!-- CSS -->
+<!-- CSS Styles -->
 <style>
-    .page-header {
-        z-index: 1;
+    body {
+        background-color: #f4f7f6;
     }
 
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+    .container {
+        max-width: 600px;
+        margin-top: 30px;
     }
-
-    label {
-        color: black;
-        font-size: 1.5rem;
-    }
-
-    .img-div, .img-div-venmo, .img-div-cashapp {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
-        background-color: white;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    /* Adjust specific Cash App QR code styling */
-    .img-div-cashapp {
-        align-items: flex-start; /* Align to top */
-        padding-top: 10px; /* Adjust spacing */
-    }
-
-    .form-select{
-        cursor: pointer;
-    }
-    /* QR code shared size */
-    .qr-code {
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-    }
-
-    .img-div, .img-div-venmo, .img-div-cashapp {
-        border: 1px solid #140c0c;
-    }
-
 
     .schedule-page-header {
         margin-bottom: 30px;
-        color: #140c0c;
-        background-color: white;
+        color: #255238;
+        background-color: #fff;
         padding: 20px;
-        border-width: 0px;
-        border-style: solid;
-        border-color: #255238;
+        border-radius: 10px;
         text-align: center;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* .button-59 {
-        margin: 10px;
-        padding: 10px 20px;
-        background-color: #255238;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    } */
-
-    .button-59:hover {
-        background-color: #1b3c29;
+    .payment-details {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
     }
+
+    .payment-text {
+        color: #333;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .img-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .qr-code {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        margin-top: 10px;
+        background-color: #fff;
+        transition: border-color 0.3s;
+    }
+
+    .form-select:focus {
+        border-color: #255238;
+        outline: none;
+    }
+
 </style>
 
 <!-- Include Flatpickr CSS -->
