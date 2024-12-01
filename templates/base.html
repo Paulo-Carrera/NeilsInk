@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Nayeli's Tattoo Website{% endblock %}</title>
+    <title>{% block title %}NeilsInk{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
                 </button>
 
                 <!-- Navbar Links (Aligned to the right) -->
-                <div class="collapse navbar-collapse" id="navbarNav" style="z-index:1000;">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto"> <!-- Added ml-auto to align to the right -->
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/schedule-appointment">Schedule</a></li>
@@ -64,7 +64,6 @@
             </ul>
         </div>
     </footer>
-    
 
     <script src="{{ url_for('static', filename='button.js') }}"></script>
     <script async src="//www.instagram.com/embed.js"></script>
@@ -74,143 +73,148 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 <style>
     /* Navigation Styles */
-.navbar {
-    display: flex;
-    align-items: center; /* Vertically center the logo and toggle button */
-    justify-content: space-between; /* Space between logo and menu */
-    padding: 0 15px; /* Adjust padding to control spacing */
-}
+    .navbar {
+        display: flex;
+        align-items: center; /* Vertically center the logo and toggle button */
+        justify-content: space-between; /* Space between logo and menu */
+        padding: 0 15px; /* Adjust padding to control spacing */
+    }
 
-.navbar-toggler {
-    margin-right: 0; /* Remove unintended margin */
-}
+    .navbar-toggler {
+        margin-right: 0; /* Remove unintended margin */
+    }
 
-.navbar-brand {
-    margin: 0; /* Remove unintended margin */
-    padding: 5px; /* Remove extra padding */
-    font-size: 1.5rem; /* Adjust size for better appearance */
-}
+    .navbar-brand {
+        margin: 0; /* Remove unintended margin */
+        padding: 5px; /* Remove extra padding */
+        font-size: 1.5rem; /* Adjust size for better appearance */
+    }
 
-.navbar-collapse {
-    margin-top: 0; /* Prevent dropdown menu from affecting logo/burger alignment */
-    padding-top: 0; /* Remove unintended padding */
-}
-
-.nav-item{
-    display: inline-block;
-    margin: 0 20px;
-}
-
-/* Prevent shifting of the navbar elements when burger menu opens */
-/* Styling for navbar in burger menu (mobile view) */
-/* Styling for navbar in burger menu (mobile view) */
-@media (max-width: 992px) {
     .navbar-collapse {
-        background-color: #eeeae6; /* Light background color matching the theme */
-        border-bottom: 2px solid #eeeae6; /* Darker border to match the website's color scheme */
-        border-radius: 0px; /* Rounded corners for a smoother appearance */
-        padding: 20px 0; /* Extra padding to space out the links */
-        width: 100%; /* Ensure it takes full width */
-        max-width: 100%; /* Remove the max-width cap */
-        left: 0; /* Align to the left */
-        z-index: 999; /* Ensure it stays on top */
-        position: absolute; /* Positioned below the navbar */
-        top: 100%; /* Dropdown below the navbar */
-        transform: translateX(0); /* No need for horizontal centering */
+        margin-top: 0; /* Prevent dropdown menu from affecting logo/burger alignment */
+        padding-top: 0; /* Remove unintended padding */
     }
 
-    .navbar-collapse.collapse.show {
-        background-color: #eeeae6; /* Matching dark color for the dropdown background */
-        color: white; /* White text */
-        border: none; /* No border when showing */
-        border-radius: 0px; /* Rounded corners */
-        padding: 20px; /* Padding for spacing */
-    }
-
-    .navbar-collapse.collapse.show nav a {
-        color: white; /* White links in the dropdown */
-        font-size: 1.2rem; /* Larger font size for readability */
-        padding: 15px 25px; /* More padding to make links easier to click */
-        text-align: center; /* Centered text */
-    }
-
-    /* On hover, change the background color of the dropdown links */
-    .navbar-collapse.collapse.show nav a:hover {
-        background-color: #255238; /* Darker green on hover */
-        text-decoration: underline; /* Underline text when hovered */
-    }
-}
-
-/* Ensure the navbar collapses fully for the mobile view */
-.navbar-toggler {
-    z-index: 1050; /* Ensure the burger icon stays above other content */
-}
-
-/* Reset for larger screens to avoid dropdown styling */
-@media (min-width: 992px) {
-    .nav li{
+    .nav-item{
         display: inline-block;
         margin: 0 20px;
     }
+
+    /* Ensure the navbar collapse is above other elements */
     .navbar-collapse {
-        background-color: transparent !important; /* Remove any background */
-        border: none; /* Remove borders for larger screens */
+        z-index: 1050; /* Ensure it's higher than other elements */
+        position: relative;
     }
 
-    .navbar-collapse.collapse.show {
-        background-color: transparent; /* No background when showing */
+    /* Ensure the navbar toggle is also on top */
+    .navbar-toggler {
+        z-index: 1060; /* Ensure it is above other content */
+        position: relative;
     }
-}
 
+    /* Prevent shifting of the navbar elements when burger menu opens */
+    /* Styling for navbar in burger menu (mobile view) */
+    @media (max-width: 992px) {
+        .navbar-collapse {
+            background-color: #eeeae6; /* Light background color matching the theme */
+            border-bottom: 2px solid #eeeae6; /* Darker border to match the website's color scheme */
+            border-radius: 0px; /* Rounded corners for a smoother appearance */
+            padding: 20px 0; /* Extra padding to space out the links */
+            width: 100%; /* Ensure it takes full width */
+            max-width: 100%; /* Remove the max-width cap */
+            left: 0; /* Align to the left */
+            z-index: 999; /* Ensure it stays on top */
+            position: absolute; /* Positioned below the navbar */
+            top: 100%; /* Dropdown below the navbar */
+            transform: translateX(0); /* No need for horizontal centering */
+        }
 
+        .navbar-collapse.collapse.show {
+            background-color: #eeeae6; /* Matching dark color for the dropdown background */
+            color: white; /* White text */
+            border: none; /* No border when showing */
+            border-radius: 0px; /* Rounded corners */
+            padding: 20px; /* Padding for spacing */
+        }
 
-/* Styling for navbar links */
-nav a {
-    text-decoration: none; /* No underline */
-    padding: 10px 20px; /* Add padding to make links easier to click */
-    display: block; /* Make links block-level for easier clicking */
-}
+        .navbar-collapse.collapse.show nav a {
+            color: white; /* White links in the dropdown */
+            font-size: 1.2rem; /* Larger font size for readability */
+            padding: 15px 25px; /* More padding to make links easier to click */
+            text-align: center; /* Centered text */
+        }
 
-/* Change the background color of links when hovered */
-nav a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
+        /* On hover, change the background color of the dropdown links */
+        .navbar-collapse.collapse.show nav a:hover {
+            background-color: #255238; /* Darker green on hover */
+            text-decoration: underline; /* Underline text when hovered */
+        }
+    }
 
-/* Add background to the dropdown (burger menu) */
-.navbar-collapse {
-    background-color: transparent; /* Default transparent */
-    border-radius: 0px; /* Optional: Add rounded corners */
-    padding: 10px 0; /* Add some padding to space out the links */
-}
+    /* Reset for larger screens to avoid dropdown styling */
+    @media (min-width: 992px) {
+        .nav li{
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .navbar-collapse {
+            background-color: transparent !important; /* Remove any background */
+            border: none; /* Remove borders for larger screens */
+        }
 
-/* Ensure dropdown links are white only in burger mode */
-.navbar-collapse.collapse.show nav a {
-    color: white; /* White links in burger menu */
-}
+        .navbar-collapse.collapse.show {
+            background-color: transparent; /* No background when showing */
+        }
+    }
 
-/* Optional: Ensure the navbar items are stacked vertically when the burger menu is shown */
-.navbar-nav {
-    padding: 0; /* No extra padding */
-    margin: 0; /* No extra margin */
-    list-style-type: none; /* Remove default list style */
-}
+    /* Styling for navbar links */
+    nav a {
+        text-decoration: none; /* No underline */
+        padding: 10px 20px; /* Add padding to make links easier to click */
+        display: block; /* Make links block-level for easier clicking */
+    }
 
-.navbar-nav li {
-    display: block; /* Stack links vertically in mobile view */
-}
+    /* Change the background color of links when hovered */
+    nav a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
 
-/* Ensure the links are block-level and fill the menu */
-.navbar-nav li a {
-    padding: 10px 20px; /* Add padding to make links easier to click */
-    display: block; /* Make links block-level */
-}
+    /* Add background to the dropdown (burger menu) */
+    .navbar-collapse {
+        background-color: transparent; /* Default transparent */
+        border-radius: 0px; /* Optional: Add rounded corners */
+        padding: 10px 0; /* Add some padding to space out the links */
+    }
 
-/* Optional: Styling for the toggle button to ensure it stays visible */
-.navbar-toggler {
-    z-index: 1050; /* Ensure the burger icon is above other content */
-}
+    /* Ensure dropdown links are white only in burger mode */
+    .navbar-collapse.collapse.show nav a {
+        color: white; /* White links in burger menu */
+    }
 
+    /* Optional: Ensure the navbar items are stacked vertically when the burger menu is shown */
+    .navbar-nav {
+        padding: 0; /* No extra padding */
+        margin: 0; /* No extra margin */
+        list-style-type: none; /* Remove default list style */
+    }
+
+    .navbar-nav li {
+        display: block; /* Stack links vertically in mobile view */
+    }
+
+    /* Ensure the links are block-level and fill the menu */
+    .navbar-nav li a {
+        padding: 10px 20px; /* Add padding to make links easier to click */
+        display: block; /* Make links block-level */
+    }
+
+    /* Optional: Styling for the toggle button to ensure it stays visible */
+    .navbar-toggler {
+        z-index: 999; /* Ensure the toggle stays on top */
+    }
 </style>
+
 </html>

@@ -2,8 +2,7 @@
 
 {% block content %}
 
-{% block page_header %}
-{% endblock %}
+{% block page_header %} {% endblock %}
 
 <!-- Main Content Wrapper -->
 <div class="container mt-5 schedule-form-container">
@@ -44,7 +43,7 @@
     </div>
 
     <!-- Navigation Buttons -->
-    <div class="text-center mt-4">
+    <div class="button-container text-center mt-4">
         <a href="/" class="button-59 btn-back">BACK</a>
         <a href="/appointment" class="button-59 btn-person">PAY IN PERSON</a>
         <a href="/appointment" class="button-59 btn-next">NEXT</a>
@@ -122,6 +121,23 @@
         outline: none;
     }
 
+    /* Mobile View Adjustments */
+    @media (max-width: 768px) {
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensure buttons are centered horizontally */
+            gap: 10px; /* Adds space between buttons */
+        }
+
+        .button-59 {
+            display: block;
+            width: 80%; /* Make buttons wider to occupy most of the screen */
+            margin: 2px 0; /* Adds spacing between buttons */
+            padding-top: 10px;
+            text-align: center;
+        }
+    }
 </style>
 
 <!-- Include Flatpickr CSS -->
