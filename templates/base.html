@@ -72,9 +72,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS (Correct version for Bootstrap 4.5.2) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
-
 <style>
 
     /* Hide by default */
@@ -208,6 +206,7 @@
             background-color: #255238; /* Darker green on hover */
             text-decoration: underline; /* Underline text when hovered */
         }
+        
     }
     
     /* Reset for larger screens to avoid dropdown styling */
@@ -271,9 +270,50 @@
     .navbar-toggler {
         z-index: 999; /* Ensure the toggle stays on top */
     }
+/* Footer Styles */
+.footer {
+    background-color: #140c0c; /* Black background for contrast */
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+.footer-links li {
+    display: inline;
+    margin: 0 30px; /* Increased spacing between links */
+}
+.footer-links a {
+    color: silver; /* Silver text */
+    font-size: 1.5rem; /* Adjust size for emphasis */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+.footer-links a:hover {
+    color: #fff; /* White text on hover */
+}
+@media screen and (max-width: 767px) {
+    .footer {
+        padding: 40px 0; /* Increase padding for a larger height */
+        height: 600px;
+    }
+
+    .footer-links {
+        display: block; /* Stack links vertically */
+    }
+
+    .footer-links li {
+        display: block; /* Ensure each link is on its own line */
+        margin: 20px 0; /* Add vertical spacing between links */
+        text-align:start;
+    }
+
+    .footer-links a {
+        font-size: 3rem; /* Slightly reduce font size for better fit */
+    }
+}
 </style>
-
-    
-    
-
 </html>

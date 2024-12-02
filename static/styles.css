@@ -278,36 +278,6 @@ h2 {
     color: white; /* White text */
 }
 
-/* Footer Styles */
-.footer {
-    background-color: #140c0c; /* Black background for contrast */
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
-.footer-links li {
-    display: inline;
-    margin: 0 30px; /* Increased spacing between links */
-}
-
-.footer-links a {
-    color: silver; /* Silver text */
-    font-size: 1.5rem; /* Adjust size for emphasis */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease; /* Smooth hover effect */
-}
-
-.footer-links a:hover {
-    color: #fff; /* White text on hover */
-}
-
 
 .text-white{
     color:white;
@@ -490,16 +460,26 @@ h2 {
 @media (max-width: 767px) {
     #backToTop {
         font-size: 0; /* Hide the text */
+        width: 40px; /* Fixed width for the square */
+        height: 40px; /* Same value for height to make it a square */
+        background-color: #f0f0f0; /* Background color for visibility */
+        border-radius: 0; /* No rounded corners */
+        display: flex; /* Use Flexbox for centering */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
     }
-    
+
     #backToTop:before {
         content: '\f062'; /* Unicode for the arrow icon */
-        font-family: "Font Awesome 5 Free"; /* Font Awesome for icon */
+        font-family: "Font Awesome 5 Free"; /* Font Awesome for the icon */
         font-weight: 900;
-        font-size: 24px; /* Adjust icon size */
+        font-size: 20px; /* Adjust icon size */
         color: black; /* Icon color */
     }
 }
+
+
+
 
 
 

@@ -8,9 +8,9 @@
         <!-- Schedule Section -->
         <div class="row mt-0 schedule-now" style="color: #789785; background-color: #789785; border-radius: 0px; top: 0px;">
             <div class="schedule-container" id="schedule-container">
-                <h1>NEILSINK</h1>
+                <h1 id="scroll-to">NEILSINK</h1>
                 <h2>TATTOOS & PIERCINGS</h2>
-                <!-- <h3>---</h3> -->
+                <!-- <div id="scroll-to"></div> -->
                 <a class="button-59" href="/schedule-appointment" style="margin-top:30px; margin-bottom: 20px;" id="schedule-button">SCHEDULE NOW</a>
             </div>
         </div>
@@ -233,6 +233,10 @@
     .schedule-container a {
         font-size: 0.9em; /* Adjust button text size */
         padding: 10px 20px; /* Adjust button padding */
+    }
+    .slide-show-container{
+        height: 300px;
+        width: 300px;
     }
 }
 
@@ -550,7 +554,7 @@
         setInterval(nextSlide, 3000); // Change slide every 3 seconds
 
         window.onload = function() {
-            const scheduleButton = document.getElementById('schedule-container');
+            const scheduleButton = document.getElementById('scroll-to');
             if (scheduleButton) {
                 scheduleButton.scrollIntoView({
                     behavior: 'smooth',
